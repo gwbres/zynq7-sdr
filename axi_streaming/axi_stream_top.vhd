@@ -60,7 +60,7 @@ gpio_read <= '1' when read_state = READ
 s_axis_tready <= '1' when read_state = READ else '0';
 m_axis_tvalid <= '1' when write_state = WRITE else '0';
 
-m_axis_tlast <= '1' when ( write_state = WRITE and count_write = 0 )
+m_axis_tlast <= '1' when ( write_state = WRITE and count_write = 1 )
 		else '0';
 
 m_axis_tkeep <= X"F";
@@ -72,7 +72,6 @@ begin
 		if rst = '1' then
 			read_state <= IDLE;
 			write_state <= IDLE;
-			count_read <= XFER_LEN;
 			count_write <= XFER_LEN;
 			-- appli
 			debug <= (others => '0');
@@ -85,13 +84,13 @@ begin
 					else	
 						count_read <= XFER_LEN;
 						read_state <= IDLE;
+					end if;
 				when READ =>
 					if s_axis_tvalid = '1' then
 						debug <= s_axis_tdata(7 downto 0);
-						if count_read = 0 then
+						if s_axis_tlast = '1' then
 							read_state <= IDLE;
 						else
-							count_read <= count_read -1;
 							read_state <= READ;
 						end if;
 					end if;
@@ -112,6 +111,7 @@ begin
 						data_o <= "10101010";
 						if count_write = 0 then
 							write_state <= IDLE;
+							count_write <= 0;
 						else
 							count_write <= count_write -1;
 							write_state <= WRITE;

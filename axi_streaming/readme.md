@@ -1,10 +1,11 @@
 The AXI_STREAMING original template faces many problems, do not know it has been released:
 the ip doesn not seem to plug on the axi bus properly, even if the user checks "automatic connexion": 
- 	the axi_streaming.mpd files has no ACLK and ARESETN port, so it cannot use them in the bus interface
-	  => the ip is not properly linked on the bus.
-	
-	it does not use the TLAST bit which is fundammental
-	it does not use the TKEEP[3:0] vector and the TUSER bit which are optionnal in the streaming timing template.
+
+there are no interface to receive/send data from other IPs in the FPGA,
+it does not use the TLAST bit which is fundammental,
+it does not use the TKEEP[3:0] vector and the TUSER bit which are optionnal in the streaming timing template.
+
+
 
 This is my template for axi_streaming communicating ip inside the FPGA.
 
