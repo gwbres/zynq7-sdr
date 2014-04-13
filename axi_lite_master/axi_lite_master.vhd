@@ -75,7 +75,7 @@ begin
 					end if;
 
 				when WRITE =>
-					if axi_cmplt = '1' and axi_dst_rdy = '0' then
+					if axi_cmplt = '1' and axi_dst_rdy = '0' or axi_error = '1' then
 						addr_s <= (others => '0');
 						axi_wrreq <= '0';
 						be_s <= (others => '0');
@@ -90,7 +90,7 @@ begin
 					end if;
 				
 				when READ => 
-					if axi_cmplt = '1' and axi_src_rdy = '0' then
+					if axi_cmplt = '1' and axi_src_rdy = '0' or axi_error = '1' then
 						axi_rdreq <= '0';
 						addr_s <= (others => '0');
 						data_i_s <= axi_rddata;
@@ -99,7 +99,7 @@ begin
 						axi_rdreq <= '1';
 						addr_s <= REG;
 						state <= READ;
-				
+					end if;	
 				when OTHERS =>
 						state <= IDLE;
 			end case;
