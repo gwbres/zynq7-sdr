@@ -1,4 +1,4 @@
-zynq
+zynq7-sdr
 ====
 This readme contains a description of all repositories, please check out the "help" part to get started. 
 
