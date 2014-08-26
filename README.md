@@ -39,6 +39,7 @@ to retrieve the I/Q samples.
 help
 -------------
 Embdeded Linux:
+
 Set a work environment for the zedboard-zynq7 by following this page created by P.Ballister --
 https://github.com/balister/oe-gnuradio-manifest -- this has been tested on both the zynq7 and the zc706.
 
@@ -50,7 +51,9 @@ gnuradio environment to the embedded linux.
 
 Upload our gnuradio source **fpga-src** onto the zynq-board.
 Connect to the board then:
-cd fpga-src &&
+
+
+cd fpga-src && 
 mkdir build\_zynq &&
 cmake .. &&
 make &&
@@ -59,8 +62,12 @@ make install &&
 Compiles our gnuradio source and install the new block on the zynq7 board.
 
 Fpga:
+
+
 you need a stable HDL environment (Vivado or XPS) in order to use our IP-cores (Xilinx Licenses).
 Create zynq designs and imports our IP-cores in order to create valid bitstreams.
 
 Use:
+
+
 
