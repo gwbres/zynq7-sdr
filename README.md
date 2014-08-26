@@ -58,15 +58,15 @@ Compiles our gnuradio source and install the new block on the zynq7 board.
 Connect to the board then:
 
 
-cd fpga-src && 
+cd fpga-src  
 
-mkdir build\_zynq &&
+mkdir build\_zynq 
 
-cmake .. &&
+cmake .. 
 
-make &&
+make 
 
-make install &&
+make install 
 
 
 Fpga:
