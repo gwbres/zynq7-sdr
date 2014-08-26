@@ -68,6 +68,21 @@ make
 make install 
 
 
+**optionnal**
+Our applications/demonstrations involved the use of external usb-sound cards.
+The original open embedded- linux kernel only contains ethernet modules/drivers.
+We recompile the linux kernel with steps
+
+bitbake virtual/kernel
+
+
+bitbake -c menuconfig virtual/kernel (add Device-drivers -> sound)
+
+
+bitbake -f -c compile virtual/kernel
+
+This will also give you the Linux kernel sources repository, usefull to cross\_compile new custom peripherals.
+
 **FPGA**
 
 you need a stable HDL environment (Vivado or XPS) in order to use our IP-cores (Xilinx Licenses).
