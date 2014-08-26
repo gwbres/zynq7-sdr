@@ -41,7 +41,7 @@ to retrieve the I/Q samples.
 
 help
 -------------
-**#Embdeded Linux**
+**#Embedded Linux**
 
 Set a work environment for the zedboard-zynq7 by following this page created by P.Ballister --
 https://github.com/balister/oe-gnuradio-manifest -- this has been tested on both the zynq7 and the zc706.
