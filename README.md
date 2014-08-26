@@ -41,7 +41,8 @@ to retrieve the I/Q samples.
 
 help
 -------------
-**#Embedded Linux**
+#embedded linux
+-------------
 
 Set a work environment for the zedboard-zynq7 by following this page created by P.Ballister --
 https://github.com/balister/oe-gnuradio-manifest -- this has been tested on both the zynq7 and the zc706.
@@ -51,7 +52,8 @@ http://gnuradio.org/redmine/projects/gnuradio/wiki/Zynq has nice informations on
 Create the SD-image and the rootfs needed for Linux to be running on the board. He included all the
 gnuradio environment to the embedded linux.
 
-**#Getting Started**
+#getting started
+--------------
 
 Upload our gnuradio source **fpga-src** onto the zynq-board.
 Compile our gnuradio source and install the new block on the zynq7 board, to do so: connect to the board then,
@@ -68,8 +70,17 @@ make
 make install 
 
 
-**#optionnal**
+#FPGA
+---------------
+you need a stable HDL environment (Vivado or XPS) in order to use our IP-cores (Xilinx Licenses).
+Create zynq designs and imports our IP-cores in order to create valid bitstreams.
 
+#gnuradio
+---------------
+
+
+#optionnal
+-------------------------------
 
 Our applications/demonstrations involved the use of external usb-sound cards.
 The original open embedded kernel only contains ethernet modules/drivers.
@@ -84,14 +95,4 @@ bitbake -f -c compile virtual/kernel
 This will also give you the linux kernel sources repository, usefull to cross\_compile new custom peripherals,
 
 KSRC=/oe-repo/build/tmp-eglibc/work/$MACHINE-oe-linux-gnueabi/linux-xlnx/3.14-xilinx/git
-
-
-**FPGA**
-
-you need a stable HDL environment (Vivado or XPS) in order to use our IP-cores (Xilinx Licenses).
-Create zynq designs and imports our IP-cores in order to create valid bitstreams.
-
-**Use**
-
-
 
