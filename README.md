@@ -53,11 +53,11 @@ gnuradio environment to the embedded linux.
 
 **#getting started**
 
-Upload our gnuradio source **fpga-src** onto the zynq-board.
+Upload our the **gnuradio** directory onto the zynq-board.
 Compile our gnuradio source and install the new block on the zynq7 board, to do so: connect to the board then,
 
 
-cd fpga-src  
+cd ~/gnuradio/fpga-src-block/fpga-src/
 
 mkdir build\_zynq 
 
@@ -67,6 +67,7 @@ make
 
 make install 
 
+The fpga-src block is installed and ready to be used in a top.py file.
 
 **#FPGA**
 
