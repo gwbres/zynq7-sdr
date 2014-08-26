@@ -81,7 +81,11 @@ bitbake -c menuconfig virtual/kernel (add Device-drivers -> sound)
 
 bitbake -f -c compile virtual/kernel
 
-This will also give you the Linux kernel sources repository, usefull to cross\_compile new custom peripherals.
+This will also give you the Linux kernel sources repository, usefull to cross\_compile new custom peripherals,
+
+
+KSRC=/oe-repo/build/tmp-eglibc/work/$MACHINE-oe-linux-gnueabi/linux-xlnx/3.14-xilinx/git
+
 
 **FPGA**
 
