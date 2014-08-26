@@ -53,7 +53,7 @@ gnuradio environment to the embedded linux.
 
 **#getting started**
 
-Upload our the **gnuradio** directory onto the zynq-board.
+Upload the **gnuradio** directory onto the zynq-board.
 Compile our gnuradio source and install the new block on the zynq7 board, to do so: connect to the board then,
 
 
