@@ -1,7 +1,4 @@
--include ${ZYNQ_WORK_DIR}/${ZYNQ_BOARD}/Makefile.include
-
-APPS=tmp
-
+APPS=sdr-1.0
 all:	sx1255
 
 sx1255:	sx1255.c
