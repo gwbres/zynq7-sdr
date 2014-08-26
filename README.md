@@ -69,20 +69,19 @@ make install
 
 
 **optionnal**
+
+
 Our applications/demonstrations involved the use of external usb-sound cards.
-The original open embedded- linux kernel only contains ethernet modules/drivers.
-We recompile the linux kernel with steps
+The original open embedded kernel only contains ethernet modules/drivers.
+We recompile the linux kernel with steps:
 
 bitbake virtual/kernel
 
-
 bitbake -c menuconfig virtual/kernel (add Device-drivers -> sound)
-
 
 bitbake -f -c compile virtual/kernel
 
-This will also give you the Linux kernel sources repository, usefull to cross\_compile new custom peripherals,
-
+This will also give you the linux kernel sources repository, usefull to cross\_compile new custom peripherals,
 
 KSRC=/oe-repo/build/tmp-eglibc/work/$MACHINE-oe-linux-gnueabi/linux-xlnx/3.14-xilinx/git
 
