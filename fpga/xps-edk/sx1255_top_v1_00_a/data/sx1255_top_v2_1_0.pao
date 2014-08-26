@@ -1,0 +1,16 @@
+##############################################################################
+## Filename:          /home/guillaume/tf-cadence/ZEDBOARD_APPLI/IQ_DATA/iq_data_v01_i/iq_data_v01.srcs/sources_1/edk/proc/pcores/sx1255_top_v1_00_a/data/sx1255_top_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Fri Mar  7 14:36:52 2014 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib proc_common_v3_00_a all vhdl
+lib axi_lite_ipif_v1_01_a all vhdl
+lib sx1255_top_v1_00_a spi_baud vhdl
+lib sx1255_top_v1_00_a spi_send_recv vhdl
+lib sx1255_top_v1_00_a spi vhdl
+lib sx1255_top_v1_00_a sx1255_axi vhdl
+lib sx1255_top_v1_00_a i2s vhdl
+lib sx1255_top_v1_00_a sx1255 vhdl
+lib sx1255_top_v1_00_a user_logic vhdl
+lib sx1255_top_v1_00_a sx1255_top vhdl

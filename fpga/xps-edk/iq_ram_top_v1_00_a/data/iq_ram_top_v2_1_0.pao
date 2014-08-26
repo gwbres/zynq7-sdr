@@ -1,0 +1,15 @@
+##############################################################################
+## Filename:          /home/guillaume/tf-cadence/zedboard_applis/iq_data/iq2/iq.srcs/sources_1/edk/proc/pcores/iq_ram_top_v1_00_a/data/iq_ram_top_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Mon Jun  2 10:11:42 2014 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib proc_common_v3_00_a all vhdl
+lib axi_lite_ipif_v1_01_a all vhdl
+lib iq_ram_top_v1_00_a iq_decim vhdl
+lib iq_ram_top_v1_00_a iq_ctrl vhdl
+lib iq_ram_top_v1_00_a dual_port_ram vhdl
+lib iq_ram_top_v1_00_a iq_axi vhdl
+lib iq_ram_top_v1_00_a iq_ram vhdl
+lib iq_ram_top_v1_00_a user_logic vhdl
+lib iq_ram_top_v1_00_a iq_ram_top vhdl
