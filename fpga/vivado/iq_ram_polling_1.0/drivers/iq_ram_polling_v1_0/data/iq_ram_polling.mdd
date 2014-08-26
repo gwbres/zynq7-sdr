@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER iq_ram_polling
+	OPTION supported_peripherals = (iq_ram_polling);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = iq_ram_polling;
+END DRIVER
