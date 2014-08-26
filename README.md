@@ -40,9 +40,11 @@ help
 -------------
 Embdeded Linux:
 Set a work environment for the zedboard-zynq7 by following this page created by P.Ballister --
+https://github.com/balister/oe-gnuradio-manifest -- this has been tested on both the zynq7 and the zc706.
+http://gnuradio.org/redmine/projects/gnuradio/wiki/Zynq has nice informations on out to create SD-image.
 
-It creates the SD-image and the rootfs needed for Linux to be running on the board. He included all the
-gnuradio environment to the embedded system.
+Create the SD-image and the rootfs needed for Linux to be running on the board. He included all the
+gnuradio environment to the embedded linux.
 
 Upload our gnuradio source **fpga-src** onto the zynq-board.
 Connect to the board then:
