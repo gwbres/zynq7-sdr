@@ -53,16 +53,20 @@ Create the SD-image and the rootfs needed for Linux to be running on the board. 
 gnuradio environment to the embedded linux.
 
 Upload our gnuradio source **fpga-src** onto the zynq-board.
+Compiles our gnuradio source and install the new block on the zynq7 board.
 Connect to the board then:
 
 
 cd fpga-src && 
+
 mkdir build\_zynq &&
+
 cmake .. &&
+
 make &&
+
 make install &&
 
-Compiles our gnuradio source and install the new block on the zynq7 board.
 
 Fpga:
 
