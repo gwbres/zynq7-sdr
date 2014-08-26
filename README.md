@@ -4,8 +4,8 @@ This readme contains a description of all repositories, please check out the "he
 
 This project is about receiving data from the FPGA into the gnuradio environment.
 
-We chose a the SX1255 radiomodem (TX/RX), controled by our sx1255 (fpga) IP, and programmed
-from the /dev/sx1255 (linux) driver. This radiomodem provides a 100MHz bandwith - 300/400MHz.
+We chose the SX1255 radiomodem (TX/RX), controled by our sx1255 (fpga) IP, and programmed
+through the /dev/sx1255 (linux) driver. This radiomodem provides a 100MHz bandwith - 300/400MHz.
 
 Then the ram-iq IP controls the data flow and we read the I/Q samples over the AXI bus. This is done
 by reading the /dev/iqram (linux) driver.
