@@ -25,8 +25,11 @@ linux
 ------
 
 **sx1255** contains the kernel sx1255\_board.ko  sx1255\_core.ko drivers and the user space application (sx1255).
+
 **ram-iq** contains the kernel ram\_board.ko ram\_core.ko drivers.
+
 **fir-16** contains the kernel fir-16\_board.ko and fir-16\_core.ko drivers.
+
 
 gnuradio
 ------
