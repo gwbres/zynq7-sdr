@@ -12,21 +12,6 @@
 #include <asm/io.h>
 #include "sx1255_config.h"
 
-#define SPI_WRITE_REG		0x00 //00 vivado
-#define SPI_READ_REG		0x04 //04 vivado
-#define SPI_STATUS_REG		0x08 //08 vivado
-#define SPI_PRESCALER_REG	0x10 //14 vivado 
-#define IQ_SEND_REG		0x14 //10 vivado		
-#define ID_REG			0x18 //18 vivado
-
-#define IOC_MAGIC		'a'	
-#define SPI_WRITE_CMD		_IOW(IOC_MAGIC, 0, int)	 	
-#define SPI_READ_CMD		_IOR(IOC_MAGIC, 1, int)
-#define SPI_STATUS_CMD		_IOR(IOC_MAGIC, 2, int)
-#define SPI_PRESCALER_CMD	_IOW(IOC_MAGIC, 3, int)
-#define IQ_SEND_CMD		_IOW(IOC_MAGIC, 4, int)
-#define ID_CMD			_IOR(IOC_MAGIC, 5, int)
-
 struct sx1255_dev {
 	char *name;
 	void *membase;
@@ -48,6 +33,7 @@ ssize_t sx1255_write(struct file *filep, const char *buffer, size_t len, loff_t 
 	} else {
 		printk(KERN_INFO "write action is now supported.\r\n");
 	}
+	/*copy from user oui mais quoi?*/
 	return len;
 }
 
@@ -61,6 +47,7 @@ ssize_t sx1255_read(struct file *filep, char *buffer, size_t len, loff_t *offset
 	} else {
 		printk(KERN_INFO "read action is now supported.\r\n");
 	}
+	/*copy to user oui mais quoi?*/
 	return len;
 }
 
@@ -247,7 +234,7 @@ static struct platform_driver plat_sx1255_driver = {
 
 module_platform_driver(plat_sx1255_driver);
 
-MODULE_AUTHOR("guillaume william bres-saix <guillaume.bressaix@gmail.com>");
+MODULE_AUTHOR("GBS");
 MODULE_ALIAS("sx1255");
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("SX1255 CTRL DRIVER");

@@ -3,9 +3,6 @@
 #include <linux/module.h>
 #include "sx1255_config.h"
 
-#define SX1255_BASE_ADDR	0x78C00000  //xps-edk
-//#define SX1255_BASE_ADDR	0x43C30000  vivado
-
 static struct resource sx1255_resources[] = {
 	[0] = {
 		.start 	= SX1255_BASE_ADDR + 0x00,
@@ -53,7 +50,8 @@ static void sx1255_board_exit(void) {
 
 module_init(sx1255_board_init);
 module_exit(sx1255_board_exit);
-MODULE_AUTHOR("guillaume william bres-saix <guillaume.bressaix@gmail.com>");
+
+MODULE_AUTHOR("GBS");
 MODULE_DESCRIPTION("SX1255 BOARD DRIVER");
 MODULE_ALIAS("sx1255_board");
 MODULE_LICENSE("GPL");

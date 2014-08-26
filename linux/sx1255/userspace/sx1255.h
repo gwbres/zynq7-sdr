@@ -1,15 +1,12 @@
 #ifndef _SX1255_H_
 #define _SX1255_H_
 
-//#define SX1255_FPGA_BASE_ADDR  0x43C00000 xps-edk
-#define SX1255_FPGA_BASE_ADDR 0x78C00000   //vivado
-#define IOC_MAGIC   'a'
-#define SPI_WRITE_CMD	_IOW(IOC_MAGIC, 0, int)
-#define SPI_READ_CMD	_IOR(IOC_MAGIC, 1, int)
-#define SPI_STATUS_CMD	_IOR(IOC_MAGIC, 2, int)
-#define SPI_PRESCALER_CMD   _IOW(IOC_MAGIC, 3, int)
-#define IQ_SEND_CMD	_IOW(IOC_MAGIC, 4, int)
-#define ID_CMD	    _IOR(IOC_MAGIC, 5, int)
+#define USE_VIVADO 1
+
+#ifndef USE_VIVADO
+#define SX1255_FPGA_BASE_ADDR 0x78C00000
+#else
+#define SX1255_FPGA_BASE_ADDR  0x43C00000 
 
 #define ADDR_MODE   0x8000
 
@@ -32,6 +29,14 @@
 #define ADDR_STAT   0x9100
 #define ADDR_ISSM     0x9200
 #define ADDR_DIG_BRIDGE	  0x9300
+
+#define IOC_MAGIC   'a'
+#define SPI_WRITE_CMD	_IOW(IOC_MAGIC, 0, int)
+#define SPI_READ_CMD	_IOR(IOC_MAGIC, 1, int)
+#define SPI_STATUS_CMD	_IOR(IOC_MAGIC, 2, int)
+#define SPI_PRESCALER_CMD   _IOW(IOC_MAGIC, 3, int)
+#define IQ_SEND_CMD	_IOW(IOC_MAGIC, 4, int)
+#define ID_CMD	    _IOR(IOC_MAGIC, 5, int)
 
 void init_radiomodem(unsigned int fd, double freq_i, double freq_o, double fosc);
 void spi_write(unsigned int fd, int val);

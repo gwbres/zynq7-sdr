@@ -1,5 +1,8 @@
+-include ${ZYNQ_WORK_DIR}/${ZYNQ_BOARD}/Makefile.include
+
+
 OBJ=sx1255
-APPS=sdr-1.0
+APPS=tmp
 SRC:=$(shell pwd)
 
 obj-m += $(OBJ)_core.o 
@@ -8,10 +11,10 @@ obj-m += $(OBJ)_board.o
 all:	$(OBJ)_core $(OBJ)_board
 
 $(OBJ)_core: 
-	make -C $(KSRC) SUBDIRS=$(SRC) modules ARCH=arm CROSS_COMPILE=${CROSS_COMPILE}
+	make -C $(KSRC) SUBDIRS=$(SRC) modules ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} 
 
 $(OBJ)_board: 
-	make -C $(KSRC) SUBDIRS=$(SRC) modules ARCH=arm CROSS_COMPILE=${CROSS_COMPILE}
+	make -C $(KSRC) SUBDIRS=$(SRC) modules ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} 
 
 modules_install:
 	make -C $(KSRC) SUBDIRS=$(SRC) modules_install ARCH=arm CROSS_COMPILE=${CROSS_COMPILE}
