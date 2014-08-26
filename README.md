@@ -68,7 +68,7 @@ make
 make install 
 
 
-**optionnal**
+**#optionnal**
 
 
 Our applications/demonstrations involved the use of external usb-sound cards.
