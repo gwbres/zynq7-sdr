@@ -17,11 +17,14 @@ gnuradio
 ------
 This is our gnuradio source block.
 The **fpga-src** sub folder contains our gnuradio source block.
-fpga\_qt and fpga\_wbfm demonstrate how to use the fpga-src.
-To install the source block, please check the "help" section of this readme.
 
-**example** contains some python top blocks, in order to demonstrate the use of the linux drivers and
-to retrieve the I/Q samples.
+**examples** contains some python top blocks, in order to demonstrate the use of the fpga-src block.
+In fpga\_to\_file.py, we call our source and simply pass the data flow into a logFile named "data400". 
+In fpga\_qt.py, we pass the dataflow into the FFT block and finally into the graphical QT sink. 
+Finally, fpga\_wbfm presents a wide band frequency demodulation of the signal coming from the fpga.
+
+
+To install the source block, please check the "help" section of this readme.
 
 
 src
