@@ -81,7 +81,7 @@ mkdir build_cross
 cmake .. 
 make 
 cd .. 
-./install.sh (expects build\_cross as a subdirectory)
+./install.sh (expects build_cross as a subdirectory)
 ```
 The fpga-src block is installed and ready to be used in a top.py file.
 
