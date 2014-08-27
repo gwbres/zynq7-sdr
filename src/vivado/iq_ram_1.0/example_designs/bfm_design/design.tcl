@@ -9,19 +9,19 @@ proc create_ipi_design { offsetfile design_name } {
 	set_property -dict [ list CONFIG.POLARITY {ACTIVE_LOW}  ] $ARESETN
 	set_property CONFIG.ASSOCIATED_RESET ARESETN $ACLK
 
-	# Create instance: iq_ram_polling_0, and set properties
-	set iq_ram_polling_0 [ create_bd_cell -type ip -vlnv gbs:user:iq_ram_polling:1.0 iq_ram_polling_0]
+	# Create instance: iq_ram_0, and set properties
+	set iq_ram_0 [ create_bd_cell -type ip -vlnv gbs:user:iq_ram:1.0 iq_ram_0]
 
 	# Create instance: master_0, and set properties
 	set master_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:cdn_axi_bfm master_0]
 	set_property -dict [ list CONFIG.C_PROTOCOL_SELECTION {2} ] $master_0
 
 	# Create interface connections
-	connect_bd_intf_net [get_bd_intf_pins master_0/M_AXI_LITE] [get_bd_intf_pins iq_ram_polling_0/S00_AXI]
+	connect_bd_intf_net [get_bd_intf_pins master_0/M_AXI_LITE] [get_bd_intf_pins iq_ram_0/S00_AXI]
 
 	# Create port connections
-	connect_bd_net -net aclk_net [get_bd_ports ACLK] [get_bd_pins master_0/M_AXI_LITE_ACLK] [get_bd_pins iq_ram_polling_0/S00_AXI_ACLK]
-	connect_bd_net -net aresetn_net [get_bd_ports ARESETN] [get_bd_pins master_0/M_AXI_LITE_ARESETN] [get_bd_pins iq_ram_polling_0/S00_AXI_ARESETN]
+	connect_bd_net -net aclk_net [get_bd_ports ACLK] [get_bd_pins master_0/M_AXI_LITE_ACLK] [get_bd_pins iq_ram_0/S00_AXI_ACLK]
+	connect_bd_net -net aresetn_net [get_bd_ports ARESETN] [get_bd_pins master_0/M_AXI_LITE_ARESETN] [get_bd_pins iq_ram_0/S00_AXI_ARESETN]
 
 	# Auto assign address
 	assign_bd_address
@@ -29,10 +29,10 @@ proc create_ipi_design { offsetfile design_name } {
 	# Copy all address to interface_address.vh file
 	set bd_path [file dirname [get_property NAME [get_files ${design_name}.bd]]]
 	upvar 1 $offsetfile offset_file
-	set offset_file "${bd_path}/iq_ram_polling_v1_0_tb_include.vh"
+	set offset_file "${bd_path}/iq_ram_v1_0_tb_include.vh"
 	set fp [open $offset_file "w"]
-	puts $fp "`ifndef iq_ram_polling_v1_0_tb_include_vh_"
-	puts $fp "`define iq_ram_polling_v1_0_tb_include_vh_\n"
+	puts $fp "`ifndef iq_ram_v1_0_tb_include_vh_"
+	puts $fp "`define iq_ram_v1_0_tb_include_vh_\n"
 	puts $fp "//Configuration current bd names"
 	puts $fp "`define BD_INST_NAME ${design_name}_i"
 	puts $fp "`define BD_WRAPPER ${design_name}_wrapper\n"
@@ -46,8 +46,8 @@ proc create_ipi_design { offsetfile design_name } {
 	close $fp
 }
 
-set ip_path [file dirname [file normalize [get_property XML_FILE_NAME [ipx::get_cores gbs:user:iq_ram_polling:1.0]]]]
-set test_bench_file ${ip_path}/example_designs/bfm_design/iq_ram_polling_v1_0_tb.v
+set ip_path [file dirname [file normalize [get_property XML_FILE_NAME [ipx::get_cores gbs:user:iq_ram:1.0]]]]
+set test_bench_file ${ip_path}/example_designs/bfm_design/iq_ram_v1_0_tb.v
 set interface_address_vh_file ""
 
 # Set IP Repository and Update IP Catalogue 
@@ -60,7 +60,7 @@ if { [lsearch -exact -nocase $repo_paths $ip_path ] == -1 } {
 set design_name ""
 set all_bd [get_bd_designs -quiet]
 for { set i 1 } { 1 } { incr i } {
-	set design_name "iq_ram_polling_v1_0_bfm_${i}"
+	set design_name "iq_ram_v1_0_bfm_${i}"
 	if { [lsearch -exact -nocase $all_bd $design_name ] == -1 } {
 		break
 	}
@@ -74,9 +74,9 @@ import_files -force -norecurse $wrapper_file
 
 set_property SOURCE_SET sources_1 [get_filesets sim_1]
 import_files -fileset sim_1 -norecurse -force $test_bench_file
-remove_files -quiet -fileset sim_1 iq_ram_polling_v1_0_tb_include.vh
+remove_files -quiet -fileset sim_1 iq_ram_v1_0_tb_include.vh
 import_files -fileset sim_1 -norecurse -force $interface_address_vh_file
-set_property top iq_ram_polling_v1_0_tb [get_filesets sim_1]
+set_property top iq_ram_v1_0_tb [get_filesets sim_1]
 set_property top_lib {} [get_filesets sim_1]
 set_property top_file {} [get_filesets sim_1]
 launch_xsim -simset sim_1 -mode behavioral

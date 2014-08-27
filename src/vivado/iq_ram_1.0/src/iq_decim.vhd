@@ -5,29 +5,29 @@ use IEEE.NUMERIC_STD.all;
 
 entity iq_decim is
 generic (
-	DATA_SIZE		: integer := 16;
-	AXI_SIZE		: integer := 32
+	I2S_DATA_WIDTH		: integer := 16;
+	AXI_DATA_WIDTH		: integer := 32
 );
 port (
 	clk			: in std_logic;
 	rst			: in std_logic;
 	start_acq		: in std_logic;
-	decim_in		: in std_logic_vector(AXI_SIZE-1 downto 0);
+	decim_in		: in std_logic_vector(AXI_DATA_WIDTH-1 downto 0);
 	data_en			: in std_logic;
-	data_i_in		: in std_logic_vector(DATA_SIZE-1 downto 0);
-	data_q_in		: in std_logic_vector(DATA_SIZE-1 downto 0);
+	data_i_in		: in std_logic_vector(I2S_DATA_WIDTH-1 downto 0);
+	data_q_in		: in std_logic_vector(I2S_DATA_WIDTH-1 downto 0);
 	new_sample		: out std_logic;
-	data_i_out		: out std_logic_vector(DATA_SIZE-1 downto 0);
-	data_q_out		: out std_logic_vector(DATA_SIZE-1 downto 0)
+	data_i_out		: out std_logic_vector(I2S_DATA_WIDTH-1 downto 0);
+	data_q_out		: out std_logic_vector(I2S_DATA_WIDTH-1 downto 0)
 );
 end entity;
 
 architecture rtl of iq_decim is
 
 
-signal decim_max		: integer range 0 to (2**(AXI_SIZE-2))-1;
-signal cnt_sample		: integer range 0 to (2**(AXI_SIZE-2))-1;
-signal data_i_s, data_q_s	: std_logic_vector(DATA_SIZE-1 downto 0);
+signal decim_max		: integer range 0 to (2**(AXI_DATA_WIDTH-2))-1;
+signal cnt_sample		: integer range 0 to (2**(AXI_DATA_WIDTH-2))-1;
+signal data_i_s, data_q_s	: std_logic_vector(I2S_DATA_WIDTH-1 downto 0);
 
 begin
 	decim_max <= to_integer(unsigned(decim_in));

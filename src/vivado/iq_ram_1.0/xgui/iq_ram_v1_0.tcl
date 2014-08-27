@@ -2,8 +2,8 @@
 proc init_gui { IPINST } {
 	set Page0 [ipgui::add_page $IPINST -name "Page 0" -layout vertical]
 	set Component_Name [ipgui::add_param $IPINST -parent $Page0 -name Component_Name]
-	set DATA [ipgui::add_param $IPINST -parent $Page0 -name DATA]
-	set ADDR [ipgui::add_param $IPINST -parent $Page0 -name ADDR]
+	set RAM_ADDR_WIDTH [ipgui::add_param $IPINST -parent $Page0 -name RAM_ADDR_WIDTH]
+	set I2S_DATA_WIDTH [ipgui::add_param $IPINST -parent $Page0 -name I2S_DATA_WIDTH]
 	set C_S00_AXI_DATA_WIDTH [ipgui::add_param $IPINST -parent $Page0 -name C_S00_AXI_DATA_WIDTH]
 	set_property tooltip {Width of S_AXI data bus} $C_S00_AXI_DATA_WIDTH
 	set C_S00_AXI_ADDR_WIDTH [ipgui::add_param $IPINST -parent $Page0 -name C_S00_AXI_ADDR_WIDTH]
@@ -12,21 +12,21 @@ proc init_gui { IPINST } {
 	set C_S00_AXI_HIGHADDR [ipgui::add_param $IPINST -parent $Page0 -name C_S00_AXI_HIGHADDR]
 }
 
-proc update_PARAM_VALUE.DATA { PARAM_VALUE.DATA } {
-	# Procedure called to update DATA when any of the dependent parameters in the arguments change
+proc update_PARAM_VALUE.RAM_ADDR_WIDTH { PARAM_VALUE.RAM_ADDR_WIDTH } {
+	# Procedure called to update RAM_ADDR_WIDTH when any of the dependent parameters in the arguments change
 }
 
-proc validate_PARAM_VALUE.DATA { PARAM_VALUE.DATA } {
-	# Procedure called to validate DATA
+proc validate_PARAM_VALUE.RAM_ADDR_WIDTH { PARAM_VALUE.RAM_ADDR_WIDTH } {
+	# Procedure called to validate RAM_ADDR_WIDTH
 	return true
 }
 
-proc update_PARAM_VALUE.ADDR { PARAM_VALUE.ADDR } {
-	# Procedure called to update ADDR when any of the dependent parameters in the arguments change
+proc update_PARAM_VALUE.I2S_DATA_WIDTH { PARAM_VALUE.I2S_DATA_WIDTH } {
+	# Procedure called to update I2S_DATA_WIDTH when any of the dependent parameters in the arguments change
 }
 
-proc validate_PARAM_VALUE.ADDR { PARAM_VALUE.ADDR } {
-	# Procedure called to validate ADDR
+proc validate_PARAM_VALUE.I2S_DATA_WIDTH { PARAM_VALUE.I2S_DATA_WIDTH } {
+	# Procedure called to validate I2S_DATA_WIDTH
 	return true
 }
 
@@ -77,13 +77,13 @@ proc update_MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH { MODELPARAM_VALUE.C_S00_AXI_A
 	set_property value [get_property value ${PARAM_VALUE.C_S00_AXI_ADDR_WIDTH}] ${MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH}
 }
 
-proc update_MODELPARAM_VALUE.DATA { MODELPARAM_VALUE.DATA PARAM_VALUE.DATA } {
+proc update_MODELPARAM_VALUE.I2S_DATA_WIDTH { MODELPARAM_VALUE.I2S_DATA_WIDTH PARAM_VALUE.I2S_DATA_WIDTH } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	set_property value [get_property value ${PARAM_VALUE.DATA}] ${MODELPARAM_VALUE.DATA}
+	set_property value [get_property value ${PARAM_VALUE.I2S_DATA_WIDTH}] ${MODELPARAM_VALUE.I2S_DATA_WIDTH}
 }
 
-proc update_MODELPARAM_VALUE.ADDR { MODELPARAM_VALUE.ADDR PARAM_VALUE.ADDR } {
+proc update_MODELPARAM_VALUE.RAM_ADDR_WIDTH { MODELPARAM_VALUE.RAM_ADDR_WIDTH PARAM_VALUE.RAM_ADDR_WIDTH } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	set_property value [get_property value ${PARAM_VALUE.ADDR}] ${MODELPARAM_VALUE.ADDR}
+	set_property value [get_property value ${PARAM_VALUE.RAM_ADDR_WIDTH}] ${MODELPARAM_VALUE.RAM_ADDR_WIDTH}
 }
 

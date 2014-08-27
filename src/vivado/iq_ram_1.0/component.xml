@@ -2,7 +2,7 @@
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <spirit:vendor>gbs</spirit:vendor>
   <spirit:library>user</spirit:library>
-  <spirit:name>iq_ram_polling</spirit:name>
+  <spirit:name>iq_ram</spirit:name>
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
@@ -173,7 +173,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>WIZ.NUM_REG</spirit:name>
-          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S00_AXI.WIZ.NUM_REG" spirit:minimum="4" spirit:maximum="512" spirit:rangeType="long">8</spirit:value>
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S00_AXI.WIZ.NUM_REG" spirit:minimum="4" spirit:maximum="512" spirit:rangeType="long">5</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>SUPPORTS_NARROW_BURST</spirit:name>
@@ -235,8 +235,9 @@
       <spirit:name>S00_AXI</spirit:name>
       <spirit:addressBlock>
         <spirit:name>S00_AXI_reg</spirit:name>
-        <spirit:baseAddress spirit:format="long" spirit:resolve="user">0x43C40000</spirit:baseAddress>
-        <spirit:range spirit:format="string">4K</spirit:range>
+        <spirit:description>0x43D20000</spirit:description>
+        <spirit:baseAddress spirit:format="long" spirit:resolve="user">0</spirit:baseAddress>
+        <spirit:range spirit:format="long">4096</spirit:range>
         <spirit:width spirit:format="long">32</spirit:width>
         <spirit:usage>register</spirit:usage>
         <spirit:parameters>
@@ -259,14 +260,14 @@
         <spirit:displayName>VHDL Synthesis</spirit:displayName>
         <spirit:envIdentifier>vhdlSource:vivado.xilinx.com:synthesis</spirit:envIdentifier>
         <spirit:language>vhdl</spirit:language>
-        <spirit:modelName>iq_ram_polling_v1_0</spirit:modelName>
+        <spirit:modelName>iq_ram_v1_0</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_vhdlsynthesis_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3783d36f</spirit:value>
+            <spirit:value>f1cad6ef</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -275,14 +276,14 @@
         <spirit:displayName>VHDL Simulation</spirit:displayName>
         <spirit:envIdentifier>vhdlSource:vivado.xilinx.com:simulation</spirit:envIdentifier>
         <spirit:language>vhdl</spirit:language>
-        <spirit:modelName>iq_ram_polling_v1_0</spirit:modelName>
+        <spirit:modelName>iq_ram_v1_0</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3783d36f</spirit:value>
+            <spirit:value>f1cad6ef</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -296,7 +297,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>fe294644</spirit:value>
+            <spirit:value>2006cd62</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -310,7 +311,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2868e6dd</spirit:value>
+            <spirit:value>e457853e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -631,7 +632,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.DATA&apos;)) - 1)">15</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.I2S_DATA_WIDTH&apos;)) - 1)">15</spirit:left>
             <spirit:right spirit:format="long" spirit:resolve="immediate">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -648,7 +649,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.DATA&apos;)) - 1)">15</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.I2S_DATA_WIDTH&apos;)) - 1)">15</spirit:left>
             <spirit:right spirit:format="long" spirit:resolve="immediate">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -714,14 +715,12 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH" spirit:order="4" spirit:minimum="0" spirit:rangeType="long">5</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>DATA</spirit:name>
-        <spirit:displayName>Data</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DATA">16</spirit:value>
+        <spirit:name>I2S_DATA_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.I2S_DATA_WIDTH">16</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>ADDR</spirit:name>
-        <spirit:displayName>Addr</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.ADDR">13</spirit:value>
+        <spirit:name>RAM_ADDR_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.RAM_ADDR_WIDTH">13</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -755,14 +754,14 @@
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/iq_ram_polling_v1_0_S00_AXI.vhd</spirit:name>
+        <spirit:name>hdl/iq_ram_v1_0_S00_AXI.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/iq_ram_polling_v1_0.vhd</spirit:name>
+        <spirit:name>hdl/iq_ram_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_fe1486e2</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_0312a40e</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
@@ -784,12 +783,12 @@
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/iq_ram_polling_v1_0_S00_AXI.vhd</spirit:name>
+        <spirit:name>hdl/iq_ram_v1_0_S00_AXI.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/iq_ram_polling_v1_0.vhd</spirit:name>
+        <spirit:name>hdl/iq_ram_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
@@ -797,37 +796,37 @@
     <spirit:fileSet>
       <spirit:name>xilinx_softwaredriver_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>drivers/iq_ram_polling_v1_0/data/iq_ram_polling.mdd</spirit:name>
+        <spirit:name>drivers/iq_ram_v1_0/data/iq_ram.mdd</spirit:name>
         <spirit:userFileType>mdd</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>drivers/iq_ram_polling_v1_0/data/iq_ram_polling.tcl</spirit:name>
+        <spirit:name>drivers/iq_ram_v1_0/data/iq_ram.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>drivers/iq_ram_polling_v1_0/src/Makefile</spirit:name>
+        <spirit:name>drivers/iq_ram_v1_0/src/Makefile</spirit:name>
         <spirit:fileType>unknown</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>drivers/iq_ram_polling_v1_0/src/iq_ram_polling.h</spirit:name>
+        <spirit:name>drivers/iq_ram_v1_0/src/iq_ram.h</spirit:name>
         <spirit:fileType>cSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>drivers/iq_ram_polling_v1_0/src/iq_ram_polling.c</spirit:name>
+        <spirit:name>drivers/iq_ram_v1_0/src/iq_ram.c</spirit:name>
         <spirit:fileType>cSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>drivers/iq_ram_polling_v1_0/src/iq_ram_polling_selftest.c</spirit:name>
+        <spirit:name>drivers/iq_ram_v1_0/src/iq_ram_selftest.c</spirit:name>
         <spirit:fileType>cSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/iq_ram_polling_v1_0.tcl</spirit:name>
+        <spirit:name>xgui/iq_ram_v1_0.tcl</spirit:name>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_2868e6dd</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_e457853e</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -838,7 +837,7 @@
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>IQ ram - axi lite</spirit:description>
+  <spirit:description>sx1255 i2s data flow storage with axi lite transfer</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>C_S00_AXI_DATA_WIDTH</spirit:name>
@@ -892,17 +891,15 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">iq_ram_polling_v1_0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">iq_ram_v1_0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>DATA</spirit:name>
-      <spirit:displayName>Data</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DATA">16</spirit:value>
+      <spirit:name>RAM_ADDR_WIDTH</spirit:name>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RAM_ADDR_WIDTH">13</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>ADDR</spirit:name>
-      <spirit:displayName>Addr</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.ADDR">13</spirit:value>
+      <spirit:name>I2S_DATA_WIDTH</spirit:name>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.I2S_DATA_WIDTH">16</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -913,18 +910,18 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>iq_ram_polling_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2014-06-16T12:01:15Z</xilinx:coreCreationDateTime>
+      <xilinx:displayName>iq_ram_v1.0</xilinx:displayName>
+      <xilinx:coreRevision>6</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2014-08-27T13:46:52Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2014.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="f45a6aca"/>
-      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="5c0f4d5f"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b46d8155"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="f03613be"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="07425dbc"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="778eebe8"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="6f9b29ae"/>
+      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="5f8e4e21"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e8e5b924"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="b73617e9"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="86055491"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="cf096c52"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

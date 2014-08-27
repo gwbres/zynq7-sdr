@@ -4,20 +4,20 @@ use IEEE.NUMERIC_STD.all;
 
 entity iq_ctrl is
 generic (
-	DATA_SIZE		: integer := 16;
-	ADDR_SIZE		: integer := 13;
-	AXI_SIZE		: integer := 32
+	I2S_DATA_WIDTH		: integer := 16;
+	RAM_ADDR_WIDTH		: integer := 13;
+	AXI_DATA_WIDTH		: integer := 32
 );
 port (
 	clk			: in std_logic;
 	rst			: in std_logic;
 	mux			: out std_logic_vector(1 downto 0);
 	new_sample		: in std_logic;
-	data_i_in		: in std_logic_vector(DATA_SIZE-1 downto 0);
-	data_q_in		: in std_logic_vector(DATA_SIZE-1 downto 0);
+	data_i_in		: in std_logic_vector(I2S_DATA_WIDTH-1 downto 0);
+	data_q_in		: in std_logic_vector(I2S_DATA_WIDTH-1 downto 0);
 	we_a			: out std_logic;
-	data_a			: out std_logic_vector((2*DATA_SIZE)-1 downto 0);
-	addr_a			: out std_logic_vector(ADDR_SIZE-1 downto 0);
+	data_a			: out std_logic_vector((2*I2S_DATA_WIDTH)-1 downto 0);
+	addr_a			: out std_logic_vector(RAM_ADDR_WIDTH-1 downto 0);
 	irq			: out std_logic
 );
 end entity;
@@ -26,16 +26,16 @@ end entity;
 architecture rtl of iq_ctrl is
 
 constant INTERNAL_SIZE		: integer := 9;
-constant HALF_FULL		: integer := ((2**ADDR_SIZE)/2)-1;
-constant FULL			: integer := (2**ADDR_SIZE)-1;
-signal addr_int			: integer range 0 to (2**ADDR_SIZE)-1;
+constant HALF_FULL		: integer := ((2**RAM_ADDR_WIDTH)/2)-1;
+constant FULL			: integer := (2**RAM_ADDR_WIDTH)-1;
+signal addr_int			: integer range 0 to (2**RAM_ADDR_WIDTH)-1;
 signal i9_s			: std_logic_vector(INTERNAL_SIZE-1 downto 0);
 signal q9_s			: std_logic_vector(INTERNAL_SIZE-1 downto 0);
-signal i8_s			: std_logic_vector((DATA_SIZE/2)-1 downto 0);
-signal q8_s			: std_logic_vector((DATA_SIZE/2)-1 downto 0);
-signal iq16_s			: std_logic_vector(DATA_SIZE-1 downto 0);
-signal iq16_p			: std_logic_vector(DATA_SIZE-1 downto 0);
-signal iq32_s			: std_logic_vector((2*DATA_SIZE)-1 downto 0);
+signal i8_s			: std_logic_vector((I2S_DATA_WIDTH/2)-1 downto 0);
+signal q8_s			: std_logic_vector((I2S_DATA_WIDTH/2)-1 downto 0);
+signal iq16_s			: std_logic_vector(I2S_DATA_WIDTH-1 downto 0);
+signal iq16_p			: std_logic_vector(I2S_DATA_WIDTH-1 downto 0);
+signal iq32_s			: std_logic_vector((2*I2S_DATA_WIDTH)-1 downto 0);
 signal cnt_sample		: std_logic;
 signal wr_rise			: std_logic;
 signal mux_s			: std_logic_vector(1 downto 0);
@@ -47,14 +47,18 @@ begin
 	i8_s <= i9_s(INTERNAL_SIZE-1 downto 1);
 	q8_s <= q9_s(INTERNAL_SIZE-1 downto 1);
 	iq32_s <= iq16_s&iq16_p;
+	
 	data_a <= iq32_s;
-
-	addr_a <= std_logic_vector(to_unsigned(addr_int, ADDR_SIZE));
+	--data_a <= std_logic_vector(to_unsigned(addr_int, 8))& std_logic_vector(to_unsigned(addr_int +1, 8))&
+	--std_logic_vector(to_unsigned(addr_int +4, 8))& std_logic_vector(to_unsigned(addr_int +3, 8));
+	
+	addr_a <= std_logic_vector(to_unsigned(addr_int, RAM_ADDR_WIDTH));
+	
 	we_a <= wr_rise;
 
 	irq <= '1' when (addr_int = HALF_FULL or addr_int = FULL)
 		else '0';
-	
+
 b16_to_32p: process(clk, rst, new_sample)
 begin
 	if rst = '1' then
