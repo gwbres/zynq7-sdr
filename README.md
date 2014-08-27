@@ -5,7 +5,7 @@ This readme contains a description of all repositories, please check out the "he
 This project is about receiving data from the FPGA into the gnuradio environment.
 To do so, we wrote a gnuradio compliant source block, some IPs in the FPGA to receive
 and control the data flow, and the linux drivers and programs to control the system, making the
-gateway between the FPGA and gnuradio.
+gateway between the FPGA and gnuradio. Official maintainers are: guillaume-william bres-saix <guillaume.bressaix@gmail.com>.
 
 Things to be improved:
 
