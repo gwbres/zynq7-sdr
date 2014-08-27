@@ -22,7 +22,8 @@ setting the fir-filter coefficients.
 This is our gnuradio source block.
 The **fpga-src** sub folder contains our gnuradio source block.
 
-**examples** contains some python top blocks, in order to demonstrate the use of the fpga-src block.
+###### examples 
+Contains some python top blocks, in order to demonstrate the use of the fpga-src block.
 In fpga\_to\_file.py, we call our source and simply pass the data flow into a logFile named "data400". 
 In fpga\_qt.py, we pass the dataflow into the FFT block and finally into the graphical QT sink. 
 Finally, fpga\_wbfm presents a wide band frequency demodulation of the signal coming from the fpga.
@@ -85,16 +86,21 @@ cd ..
 The fpga-src block is installed and ready to be used in a top.py file.
 
 
-#### FPGA
+###### FPGA
 - - -
 
 You need a stable HDL environment (Vivado or XPS) in order to use our IP-cores (Xilinx Licenses).
 Create zynq designs and imports our IP-cores in order to create valid bitstreams.
 
-**#gnuradio**
+###### gnuradio
+- - -
+This project relies on the use of the __open-embedded__ linux distribution made for the zynq7 series.
+Following this tutorial, you will get a whole system embedding all of the gnuradio dependencies, needed to
+run a gnuradio design flow on the zynq board.
 
-**#optionnal**
 
+###### Optionnal
+- - -
 Our applications/demonstrations involved the use of external usb-sound cards.
 The original open embedded kernel only contains ethernet modules/drivers.
 We recompile the linux kernel with steps:
