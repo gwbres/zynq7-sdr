@@ -75,6 +75,7 @@ Compile our gnuradio source and install the new block on the zynq7 board, to do 
 
 ```shell 
 scp -r gnuradio root@my_zynq_ip:/home/root
+ssh root@my_zynq_ip
 cd ~/gnuradio/fpga-src-block/fpga-src/
 mkdir build_cross
 cmake .. 
