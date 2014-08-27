@@ -1,9 +1,0 @@
-/mnt/gr-test1/build/swig/CMakeFiles/_test1_swig.dir
-/mnt/gr-test1/build/swig/CMakeFiles/_test1_swig_doc_tag.dir
-/mnt/gr-test1/build/swig/CMakeFiles/_test1_swig_swig_tag.dir
-/mnt/gr-test1/build/lib/CMakeFiles/gnuradio-test1.dir
-/mnt/gr-test1/build/apps/CMakeFiles/pygen_apps_9a6dd.dir
-/mnt/gr-test1/build/python/CMakeFiles/pygen_python_370ee.dir
-/mnt/gr-test1/build/swig/CMakeFiles/pygen_swig_0325f.dir
-/mnt/gr-test1/build/lib/CMakeFiles/test-test1.dir
-/mnt/gr-test1/build/CMakeFiles/uninstall.dir

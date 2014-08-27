@@ -1,1 +1,0 @@
-/usr/bin/c++   -O3 -DNDEBUG    CMakeFiles/test-test1.dir/test_test1.cc.o CMakeFiles/test-test1.dir/qa_test1.cc.o  -o test-test1 -rdynamic /usr/local/lib/libgnuradio-runtime.so -lboost_filesystem -lboost_system -lcppunit -ldl libgnuradio-test1.so /usr/local/lib/libgnuradio-runtime.so -lboost_filesystem -lboost_system -Wl,-rpath,/usr/local/lib:/mnt/gr-test1/build/lib 

@@ -1,9 +1,0 @@
-/home/gwe/these/gnuradio/gr-test1/build_x86/swig/CMakeFiles/_test1_swig.dir
-/home/gwe/these/gnuradio/gr-test1/build_x86/swig/CMakeFiles/_test1_swig_doc_tag.dir
-/home/gwe/these/gnuradio/gr-test1/build_x86/swig/CMakeFiles/_test1_swig_swig_tag.dir
-/home/gwe/these/gnuradio/gr-test1/build_x86/lib/CMakeFiles/gnuradio-test1.dir
-/home/gwe/these/gnuradio/gr-test1/build_x86/apps/CMakeFiles/pygen_apps_9a6dd.dir
-/home/gwe/these/gnuradio/gr-test1/build_x86/python/CMakeFiles/pygen_python_f493b.dir
-/home/gwe/these/gnuradio/gr-test1/build_x86/swig/CMakeFiles/pygen_swig_b715d.dir
-/home/gwe/these/gnuradio/gr-test1/build_x86/lib/CMakeFiles/test-test1.dir
-/home/gwe/these/gnuradio/gr-test1/build_x86/CMakeFiles/uninstall.dir
