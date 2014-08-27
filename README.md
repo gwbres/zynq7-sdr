@@ -16,7 +16,7 @@ We created a gnuradio source block (fpga-src).
 gnuradio
 ------
 This is our gnuradio source block.
-The fpga-src sub folder contains our gnuradio source block.
+The **fpga-src** sub folder contains our gnuradio source block.
 fpga\_qt and fpga\_wbfm demonstrate how to use the fpga-src.
 To install the source block, please check the "help" section of this readme.
 
@@ -28,12 +28,15 @@ src
 ------------
 contains all the project sources.
 
+Please, note the xps-edk IPs are **deprecated**, our linux drivers and userspace programs
+are only valid for the **vivado** IPs. The differences being memory addresses, interrupt
+flags number and fpga registers addresses.
 
 **#xps-edk** contains valid IPs to use with the XPS/EDK Xilinx tool. The driver subdirectory contains
 the related kernel drivers.
-**vivado** contains IPs to use with Vivado (new Xilinx tool).
-  add the sx1255 ip to use this particular radiomodem
-  the ram-iq-1.0 ip uses axi-lite transfer to send the I/Q samples from the sx1255 IP.
+**vivado** contains valid IPs to use with Vivado (new Xilinx tool).
+  sx1255-1.0 controls the SX1255(SEMTECH) radiotransceiver, through an AXI-SPI gateway.
+  The ram-iq-1.0 ip uses axi-lite transfer to send the I/Q samples from the sx1255 IP.
   the ram-iq-2.0 ip uses axi-streaming and zynq7-dma flow to send the I/Q samples from the sx1255 IP.
 
 
