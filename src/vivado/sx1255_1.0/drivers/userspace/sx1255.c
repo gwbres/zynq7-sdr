@@ -15,7 +15,6 @@ int main(int argc, char **argv)
     printf("error opening /dev/sx1255\r\n");
     goto fail;
   }
-  printf("0x%x\r\n", SX1255_FPGA_BASE_ADDR);
   
   if (fpga_test_comm(fd) < 0){
     printf("fpga ip comm failed\r\n");
