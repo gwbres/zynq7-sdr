@@ -65,6 +65,8 @@ https://github.com/balister/oe-gnuradio-manifest -- this has been tested on both
 
 http://gnuradio.org/redmine/projects/gnuradio/wiki/Zynq has nice informations on out to create the SD-image.
 
+To create a Linux image for the Zybo you could start by following my topic and the included tutorial here, 
+[Xilinx Forums - embedded linux on a zybo] (http://forums.xilinx.com/t5/Embedded-Linux/Booting-Linux-on-a-Zybo/td-p/504993).
 
 Create the SD-image and the rootfs needed for Linux to be running on the board. He included all the
 gnuradio environment to the embedded linux.
