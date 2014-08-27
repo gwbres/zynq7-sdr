@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<block>
+  <name>dds_fpga</name>
+  <key>test1_dds_fpga</key>
+  <category>test1</category>
+  <import>import test1</import>
+  <make>test1.dds_fpga($nbSamp, $devname)</make>
+  	<param>
+	  	<name>nb sample</name>
+		<key>nbSamp</key>
+		<type>int</key>
+	</param>
+  	<param>
+	  	<name>device name</name>
+		<key>devname</key>
+		<type>string</key>
+	</param>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <!--<param>
+    <name>...</name>
+    <key>...</key>
+    <type>...</type>
+  </param>-->
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>byte</type>
+	<vlen>2</vlen>
+  </source>
+</block>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="namespacegr_1_1test1" kind="namespace">
+    <compoundname>gr::test1</compoundname>
+    <innerclass refid="classgr_1_1test1_1_1dds__fpga" prot="public">gr::test1::dds_fpga</innerclass>
+    <innerclass refid="classgr_1_1test1_1_1toto" prot="public">gr::test1::toto</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/gr-test1/include/test1/dds_fpga.h" line="29" column="1"/>
+  </compounddef>
+</doxygen>
