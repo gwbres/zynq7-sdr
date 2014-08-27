@@ -9,7 +9,7 @@ Official maintainers are:
 
 * Guillaume William Bres-Saix <guillaume.bressaix@gmail.com> 
 * Jean-Michel Friedt <jmfriedt@femto-st.fr> 
-* Gwenhael Goavec-Merou <gwhenhael.goavec-merou@armadeus.com>.
+* Gwenhael Goavec-Merou <gwenhael.goavec-merou@armadeus.com>.
 
 ###### Things to be improved:
 
