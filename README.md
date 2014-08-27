@@ -7,10 +7,11 @@ and control the data flow, and the linux drivers and programs to control the sys
 gateway between the FPGA and gnuradio. 
 Official maintainers are: 
 
-Guillaume William Bres-Saix <guillaume.bressaix@gmail.com>, 
-Jean-Michel Friedt <jmfriedt@femto-st.fr>, Gwenhael Goavec-Merou <gwhenhael.goavec-merou@armadeus.com>.
+* Guillaume William Bres-Saix <guillaume.bressaix@gmail.com> 
+* Jean-Michel Friedt <jmfriedt@femto-st.fr> 
+* Gwenhael Goavec-Merou <gwhenhael.goavec-merou@armadeus.com>.
 
-Things to be improved:
+###### Things to be improved:
 
 Pass arguments to the linux drivers from the gnuradio environment, instead of calling
 external scripts: like programming the radiomodem, setting the decimation factor or
@@ -38,19 +39,21 @@ Please, note the xps-edk IPs are **deprecated**, our linux drivers and userspace
 are only valid for the **vivado** IPs. The differences being memory addresses, interrupt
 flags number and fpga registers addresses.
 
-**vivado** contains valid IPs to use with Vivado (new Xilinx tool).
+###### Vivado
+Contains valid IPs to use with Vivado (new Xilinx tool).
     
-  sx1255-1.0 controls the SX1255(SEMTECH) radiotransceiver, through an AXI-SPI gateway.
+  * sx1255-1.0 controls the SX1255(SEMTECH) radiotransceiver, through an AXI-SPI gateway.
   
-  The ram-iq-1.0 ip uses 4096x2 axi-lite transfers to send the I/Q samples from the sx1255 IP.
+  * The ram-iq-1.0 ip uses 4096x2 axi-lite transfers to send the I/Q samples from the sx1255 IP.
   
-  The ram-iq-2.0 ip uses 16 axi-streaming transfers and a zynq7-dma flow to send the 
+  * The ram-iq-2.0 ip uses 16 axi-streaming transfers and a zynq7-dma flow to send the 
   I/Q samples from the sx1255 IP.
   
   Import the repository to use the IP. The linux driver can be found in the kernel subdirectory, the
   userspace program is found in the userspace subdirectory.
 
-**xps-edk** contains valid IPs to use with the XPS/EDK Xilinx tool. The driver subdirectory contains
+###### xps-edk
+Contains valid IPs to use with the XPS/EDK Xilinx tool. The driver subdirectory contains
 the related kernel drivers.
 
 #### help
