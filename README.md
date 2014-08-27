@@ -3,15 +3,15 @@ zynq7-sdr
 This readme contains a description of all repositories, please check out the "help" part to get started. 
 
 This project is about receiving data from the FPGA into the gnuradio environment.
+To do so, we wrote a gnuradio compliant source block, some IPs in the FPGA to receive
+and control the data flow, and the linux drivers and programs to control the system, making the
+gateway between the FPGA and gnuradio.
 
-We chose the SX1255 radiomodem (TX/RX), controled by our sx1255 (fpga) IP, and programmed
-through the /dev/sx1255 (linux) driver. This radiomodem provides a 100MHz bandwith - 300/400MHz.
+Things to be improved:
 
-Then the ram-iq IP controls the data flow and we read the I/Q samples over the AXI bus. This is done
-by reading the /dev/iqram (linux) driver.
-
-We created a gnuradio source block (fpga-src).
-
+Pass arguments to the linux drivers from the gnuradio environment, instead of calling
+external scripts: like programming the radiomodem, setting the decimation factor or
+setting the fir-filter coefficients.
 
 gnuradio
 ------
