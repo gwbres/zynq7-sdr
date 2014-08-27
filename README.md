@@ -73,15 +73,19 @@ Compile our gnuradio source and install the new block on the zynq7 board, to do 
 
 cd ~/gnuradio/fpga-src-block/fpga-src/
 
-mkdir build\_zynq 
+mkdir build\_cross
 
 cmake .. 
 
 make 
 
-make install 
+cd .. 
+
+./install.sh (expects build\_cross as a subdirectory)
+
 
 The fpga-src block is installed and ready to be used in a top.py file.
+
 
 **#FPGA**
 
