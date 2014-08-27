@@ -16,6 +16,9 @@ We created a gnuradio source block (fpga-src).
 gnuradio
 ------
 This is our gnuradio source block.
+The fpga-src sub folder contains our gnuradio source block.
+fpga\_qt and fpga\_wbfm demonstrate how to use the fpga-src.
+To install the source block, please check the "help" section of this readme.
 
 **example** contains some python top blocks, in order to demonstrate the use of the linux drivers and
 to retrieve the I/Q samples.
@@ -29,6 +32,9 @@ contains all the project sources.
 **#xps-edk** contains valid IPs to use with the XPS/EDK Xilinx tool. The driver subdirectory contains
 the related kernel drivers.
 **vivado** contains IPs to use with Vivado (new Xilinx tool).
+  add the sx1255 ip to use this particular radiomodem
+  the ram-iq-1.0 ip uses axi-lite transfer to send the I/Q samples from the sx1255 IP.
+  the ram-iq-2.0 ip uses axi-streaming and zynq7-dma flow to send the I/Q samples from the sx1255 IP.
 
 
 help
@@ -39,6 +45,7 @@ Set a work environment for the zedboard-zynq7 by following this page created by 
 https://github.com/balister/oe-gnuradio-manifest -- this has been tested on both the zedboard and the zc706.
 
 http://gnuradio.org/redmine/projects/gnuradio/wiki/Zynq has nice informations on out to create the SD-image.
+
 
 Create the SD-image and the rootfs needed for Linux to be running on the board. He included all the
 gnuradio environment to the embedded linux.
