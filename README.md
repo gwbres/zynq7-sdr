@@ -54,8 +54,7 @@ Contains valid IPs to use with Vivado (new Xilinx tool).
   userspace program is found in the userspace subdirectory.
 
 ###### xps-edk
-Contains valid IPs to use with the XPS/EDK Xilinx tool. The driver subdirectory contains
-the related kernel drivers.
+Contains valid IPs to use with the XPS/EDK Xilinx tool.
 
 #### help
 - - -
