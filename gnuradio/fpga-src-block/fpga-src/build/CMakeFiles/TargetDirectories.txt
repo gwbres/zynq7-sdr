@@ -1,9 +1,0 @@
-/home/guillaume/tmp/zedboard/gr-test1WithBufLen/build/swig/CMakeFiles/_test1_swig.dir
-/home/guillaume/tmp/zedboard/gr-test1WithBufLen/build/swig/CMakeFiles/_test1_swig_doc_tag.dir
-/home/guillaume/tmp/zedboard/gr-test1WithBufLen/build/swig/CMakeFiles/_test1_swig_swig_tag.dir
-/home/guillaume/tmp/zedboard/gr-test1WithBufLen/build/lib/CMakeFiles/gnuradio-test1.dir
-/home/guillaume/tmp/zedboard/gr-test1WithBufLen/build/apps/CMakeFiles/pygen_apps_9a6dd.dir
-/home/guillaume/tmp/zedboard/gr-test1WithBufLen/build/python/CMakeFiles/pygen_python_62031.dir
-/home/guillaume/tmp/zedboard/gr-test1WithBufLen/build/swig/CMakeFiles/pygen_swig_ba944.dir
-/home/guillaume/tmp/zedboard/gr-test1WithBufLen/build/lib/CMakeFiles/test-test1.dir
-/home/guillaume/tmp/zedboard/gr-test1WithBufLen/build/CMakeFiles/uninstall.dir

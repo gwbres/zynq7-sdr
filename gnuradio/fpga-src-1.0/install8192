@@ -1,0 +1,23 @@
+cd ../
+mkdir -p /tftpboot/apf51-root/usr/include/test1/test1/swig
+mkdir -p /tftpboot/apf51-root/usr/lib/python2.7/site-packages/test1
+mkdir -p /tftpboot/apf51-root/usr/share/gnuradio/grc/blocks
+
+cp include/test1/api.h /tftpboot/apf51-root/usr/include/test1/
+cp include/test1/toto.h /tftpboot/apf51-root/usr/include/test1/
+cp include/test1/dds_fpga.h /tftpboot/apf51-root/usr/include/test1/
+
+cp build_cross8192/lib/libgnuradio-test1.so /tftpboot/apf51-root/usr/lib/
+cp build_cross8192/swig/_test1_swig.so /tftpboot/apf51-root/usr/lib/python2.7/site-packages/test1/
+cp build_cross8192/swig/test1_swig.py /tftpboot/apf51-root/usr/lib/python2.7/site-packages/test1/
+cp build_cross8192/swig/test1_swig.pyc /tftpboot/apf51-root/usr/lib/python2.7/site-packages/test1/
+cp build_cross8192/swig/test1_swig.pyo /tftpboot/apf51-root/usr/lib/python2.7/site-packages/test1/
+
+cp swig/test1_swig.i /tftpboot/apf51-root/usr/include/test1/test1/swig/
+cp build_cross8192/swig/test1_swig_doc.i /tftpboot/apf51-root/usr/include/test1/test1/swig/
+
+cp python/__init__.py /tftpboot/apf51-root/usr/lib/python2.7/site-packages/test1/
+cp build_cross8192/python/__init__.py*  /tftpboot/apf51-root/usr/lib/python2.7/site-packages/test1/
+
+cp grc/test1_*.xml /tftpboot/apf51-root/usr/share/gnuradio/grc/blocks/
+cd -

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="dir_2c0c8698ec35dfc2600e7c8070fcc27b" kind="dir">
+    <compoundname>/mnt/gr-test1/include/test1</compoundname>
+    <innerfile refid="api_8h">api.h</innerfile>
+    <innerfile refid="dds__fpga_8h">dds_fpga.h</innerfile>
+    <innerfile refid="toto_8h">toto.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/gr-test1/include/test1/"/>
+  </compounddef>
+</doxygen>

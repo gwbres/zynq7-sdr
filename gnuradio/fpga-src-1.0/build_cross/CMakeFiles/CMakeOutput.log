@@ -1,0 +1,58 @@
+The target system is: Linux -  - 
+The host system is: Linux - 3.2.0-4-amd64 - x86_64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-g++ -march=armv7-a;-marm;-mthumb-interwork;-mfloat-abi=hard;-mfpu=neon;--sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi
+Build flags: ;-O2;-pipe;-g;-feliminate-unused-debug-types
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CompilerIdCXX/a.out"
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-gcc -march=armv7-a;-marm;-mthumb-interwork;-mfloat-abi=hard;-mfpu=neon;--sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi
+Build flags: ;-O2;-pipe;-g;-feliminate-unused-debug-types
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CompilerIdC/a.out"
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec4237214742/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec4237214742.dir/build.make CMakeFiles/cmTryCompileExec4237214742.dir/build
+gmake[1]: Entering directory `/home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4237214742.dir/testCXXCompiler.cxx.o
+/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-g++   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi    -o CMakeFiles/cmTryCompileExec4237214742.dir/testCXXCompiler.cxx.o -c /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec4237214742
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4237214742.dir/link.txt --verbose=1
+/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-g++   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi        -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed CMakeFiles/cmTryCompileExec4237214742.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec4237214742 -rdynamic 
+gmake[1]: Leaving directory `/home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp'
+
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/gmake "cmTryCompileExec2765279797/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2765279797.dir/build.make CMakeFiles/cmTryCompileExec2765279797.dir/build
+gmake[1]: Entering directory `/home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2765279797.dir/testCCompiler.c.o
+/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-gcc   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi   -o CMakeFiles/cmTryCompileExec2765279797.dir/testCCompiler.c.o   -c /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec2765279797
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2765279797.dir/link.txt --verbose=1
+/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-gcc   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi       -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed CMakeFiles/cmTryCompileExec2765279797.dir/testCCompiler.c.o  -o cmTryCompileExec2765279797 -rdynamic 
+gmake[1]: Leaving directory `/home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp'
+
+
