@@ -1,5 +1,5 @@
 # zynq7-sdr
-
+- - -
 This readme contains a description of all repositories, please check out the "help" part to get started. 
 
 This project is about receiving data from the FPGA into the gnuradio environment.
@@ -17,8 +17,8 @@ Pass arguments to the linux drivers from the gnuradio environment, instead of ca
 external scripts: like programming the radiomodem, setting the decimation factor or
 setting the fir-filter coefficients.
 
-gnuradio
-------
+#### gnuradio
+- - -
 This is our gnuradio source block.
 The **fpga-src** sub folder contains our gnuradio source block.
 
@@ -31,9 +31,9 @@ Finally, fpga\_wbfm presents a wide band frequency demodulation of the signal co
 To install the source block, please check the "help" section of this readme.
 
 
-src
-------------
-contains all the project sources.
+#### src
+- - - 
+Contains all the project sources.
 
 Please, note the xps-edk IPs are **deprecated**, our linux drivers and userspace programs
 are only valid for the **vivado** IPs. The differences being memory addresses, interrupt
@@ -54,9 +54,9 @@ flags number and fpga registers addresses.
 **xps-edk** contains valid IPs to use with the XPS/EDK Xilinx tool. The driver subdirectory contains
 the related kernel drivers.
 
-help
--------------
-**#Embedded Linux**
+#### help
+- - -
+###### Embedded Linux
 
 Set a work environment for the zedboard-zynq7 by following this page created by P.Ballister --
 https://github.com/balister/oe-gnuradio-manifest -- this has been tested on both the zedboard and the zc706.
@@ -67,30 +67,24 @@ http://gnuradio.org/redmine/projects/gnuradio/wiki/Zynq has nice informations on
 Create the SD-image and the rootfs needed for Linux to be running on the board. He included all the
 gnuradio environment to the embedded linux.
 
-**#getting started**
-
+###### Getting Started
 Upload the **gnuradio** directory onto the zynq-board.
 Compile our gnuradio source and install the new block on the zynq7 board, to do so: connect to the board then,
 
 ```shell 
 scp -r gnuradio root@my_zynq_ip:/home/root
 cd ~/gnuradio/fpga-src-block/fpga-src/
-
-mkdir build\_cross
-
+mkdir build_cross
 cmake .. 
-
 make 
-
 cd .. 
-
 ./install.sh (expects build\_cross as a subdirectory)
-
-
+```
 The fpga-src block is installed and ready to be used in a top.py file.
 
 
-**#FPGA**
+#### FPGA
+- - -
 
 You need a stable HDL environment (Vivado or XPS) in order to use our IP-cores (Xilinx Licenses).
 Create zynq designs and imports our IP-cores in order to create valid bitstreams.
@@ -102,14 +96,14 @@ Create zynq designs and imports our IP-cores in order to create valid bitstreams
 Our applications/demonstrations involved the use of external usb-sound cards.
 The original open embedded kernel only contains ethernet modules/drivers.
 We recompile the linux kernel with steps:
-
+```shell
 bitbake virtual/kernel
-
 bitbake -c menuconfig virtual/kernel (add Device-drivers -> sound)
-
 bitbake -f -c compile virtual/kernel
-
+```
 This will also give you the linux kernel sources repository, usefull to cross\_compile new custom peripherals,
 
+```shell
 KSRC=/oe-repo/build/tmp-eglibc/work/$MACHINE-oe-linux-gnueabi/linux-xlnx/3.14-xilinx/git
+```
 
