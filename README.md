@@ -68,8 +68,8 @@ http://gnuradio.org/redmine/projects/gnuradio/wiki/Zynq has nice informations on
 To create a Linux image for the Zybo you could start by following my topic and the included tutorial here, 
 [Xilinx Forums - embedded linux on a zybo] (http://forums.xilinx.com/t5/Embedded-Linux/Booting-Linux-on-a-Zybo/td-p/504993).
 
-Create the SD-image and the rootfs needed for Linux to be running on the board. He included all the
-gnuradio environment to the embedded linux.
+Create the SD-image and the rootfs needed for Linux to be running on the board. P. Ballister included all the
+gnuradio environment to the embedded linux through __open-embedded__.
 
 ###### Getting Started
 Upload the **gnuradio** directory onto the zynq-board.
