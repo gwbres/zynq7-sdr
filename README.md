@@ -39,10 +39,13 @@ flags number and fpga registers addresses.
 
 **#xps-edk** contains valid IPs to use with the XPS/EDK Xilinx tool. The driver subdirectory contains
 the related kernel drivers.
+
 **vivado** contains valid IPs to use with Vivado (new Xilinx tool).
   sx1255-1.0 controls the SX1255(SEMTECH) radiotransceiver, through an AXI-SPI gateway.
   The ram-iq-1.0 ip uses axi-lite transfer to send the I/Q samples from the sx1255 IP.
   the ram-iq-2.0 ip uses axi-streaming and zynq7-dma flow to send the I/Q samples from the sx1255 IP.
+  Import the repository to use the IP. The linux driver can be found in the kernel subdirectory, the
+  userspace program is found in the userspace subdirectory.
 
 
 help
