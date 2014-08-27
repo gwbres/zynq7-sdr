@@ -1,12 +1,14 @@
-zynq7-sdr
-====
+# zynq7-sdr
+
 This readme contains a description of all repositories, please check out the "help" part to get started. 
 
 This project is about receiving data from the FPGA into the gnuradio environment.
 To do so, we wrote a gnuradio compliant source block, some IPs in the FPGA to receive
 and control the data flow, and the linux drivers and programs to control the system, making the
 gateway between the FPGA and gnuradio. 
-Official maintainers are: guillaume-william bres-saix <guillaume.bressaix@gmail.com>, 
+Official maintainers are: 
+
+guillaume-william bres-saix <guillaume.bressaix@gmail.com>, 
 Jean-Michel Friedt <jmfriedt@femto-st.fr>, Gwenhael Goavec-Merou <gwhenhael.goavec-merou@armadeus.com>.
 
 Things to be improved:
@@ -70,7 +72,8 @@ gnuradio environment to the embedded linux.
 Upload the **gnuradio** directory onto the zynq-board.
 Compile our gnuradio source and install the new block on the zynq7 board, to do so: connect to the board then,
 
-
+```shell 
+scp -r gnuradio root@my_zynq_ip:/home/root
 cd ~/gnuradio/fpga-src-block/fpga-src/
 
 mkdir build\_cross
