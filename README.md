@@ -107,9 +107,7 @@ Our applications/demonstrations involved the use of external usb-sound cards.
 The original open embedded kernel only contains ethernet modules/drivers.
 We recompile the linux kernel with steps:
 ```shell
-bitbake virtual/kernel
-bitbake -c menuconfig virtual/kernel (add Device-drivers -> sound)
-bitbake -f -c compile virtual/kernel
+bitbake virtual/kernel (to retrieve the kernel sources)
 ```
 then cross_compile the new sources
 ```shell
