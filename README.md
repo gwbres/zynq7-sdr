@@ -110,9 +110,14 @@ bitbake virtual/kernel
 bitbake -c menuconfig virtual/kernel (add Device-drivers -> sound)
 bitbake -f -c compile virtual/kernel
 ```
-This will also give you the linux kernel sources repository, usefull to cross\_compile new custom peripherals,
-
+then cross_compile the new sources
 ```shell
-KSRC=/oe-repo/build/tmp-eglibc/work/$MACHINE-oe-linux-gnueabi/linux-xlnx/3.14-xilinx/git
+cd ~/oe-repo/tmp-eglibc/work/$MACHINE-oe-linux-gnueabi/linux-xlnx/3.14-xlinx/git
+make ARCH=arm xilinx_zynq_defconfig
+make ARCH=arm menuconfig  -- add ALSA support & USB OTG
+make ARCH=arm CROSS_COMPILE=arm-oe-linux-gnueabi- 
+make ARCH=arm CROSS_COMPILE=arm-oe-linux-gnueabi- modules
+make ARCH=arm CROSS_COMPILE=arm-oe-linux-gnueabi- INSTALL_MOD_PATH=./mod modules
 ```
+upload the new lib/modules onto the system rootfs.
 
