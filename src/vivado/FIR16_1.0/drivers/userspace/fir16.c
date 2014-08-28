@@ -57,6 +57,7 @@ void assign_coeff_tab(unsigned int fd, char *path){
   FILE *f;
   int coeff_tab[64], size = 0;
   int k = 0;
+  
   f = fopen(path, "r");
   if (f == NULL){
     printf("error opening file %s\r\n", path);
@@ -65,6 +66,7 @@ void assign_coeff_tab(unsigned int fd, char *path){
 
   size = get_coeff_tab(f, coeff_tab);
   fclose(f);
+  
   for(k = 0; k < size; k++)
     assign_1x_coeff(fd, coeff_tab[k]);
 }
@@ -109,6 +111,7 @@ void debugg(char *path){
   }
   
   idx = get_coeff_tab(f, coeff);
+  
   printf("coef tab result:\r\n");
   for (k = 0; k < idx; k++)
     printf("%d\r\n", coeff[k]);
