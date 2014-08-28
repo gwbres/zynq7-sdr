@@ -8,6 +8,7 @@ gateway between the FPGA and gnuradio.
 Official maintainers are: 
 
 * Guillaume William Bres-Saix <guillaume.bressaix@gmail.com>
+* Jean-Michel Friedt <jmfriedt@femto-st.fr>
 * Gwenhael Goavec-Merou <gwenhael.goavec-merou@armadeus.com>
 
 ###### Things to be improved:
