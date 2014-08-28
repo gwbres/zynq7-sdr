@@ -7,7 +7,8 @@ and control the data flow, and the linux drivers and programs to control the sys
 gateway between the FPGA and gnuradio. 
 Official maintainers are: 
 
-* Guillaume William Bres-Saix <guillaume.bressaix@gmail.com> 
+* Guillaume William Bres-Saix <guillaume.bressaix@gmail.com>
+* Gwenhael Goavec-Merou <gwenhael.goavec-merou@armadeus.com>
 
 ###### Things to be improved:
 
