@@ -383,7 +383,7 @@ class dds_fpga(object):
     def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
     def make(*args, **kwargs):
-        """make(int nbSamp) -> dds_fpga_sptr"""
+        """make(int nbSamp, std::string const & devname) -> dds_fpga_sptr"""
         return _test1_swig.dds_fpga_make(*args, **kwargs)
 
     make = staticmethod(make)
@@ -393,7 +393,7 @@ dds_fpga_swigregister = _test1_swig.dds_fpga_swigregister
 dds_fpga_swigregister(dds_fpga)
 
 def dds_fpga_make(*args, **kwargs):
-  """dds_fpga_make(int nbSamp) -> dds_fpga_sptr"""
+  """dds_fpga_make(int nbSamp, std::string const & devname) -> dds_fpga_sptr"""
   return _test1_swig.dds_fpga_make(*args, **kwargs)
 
 class dds_fpga_sptr(object):
@@ -415,7 +415,7 @@ class dds_fpga_sptr(object):
     __swig_destroy__ = _test1_swig.delete_dds_fpga_sptr
     __del__ = lambda self : None;
     def make(self, *args, **kwargs):
-        """make(dds_fpga_sptr self, int nbSamp) -> dds_fpga_sptr"""
+        """make(dds_fpga_sptr self, int nbSamp, std::string const & devname) -> dds_fpga_sptr"""
         return _test1_swig.dds_fpga_sptr_make(self, *args, **kwargs)
 
     def history(self):

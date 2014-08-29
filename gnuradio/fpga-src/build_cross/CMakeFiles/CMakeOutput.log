@@ -29,30 +29,30 @@ The C compiler identification is GNU, found in "/home/guillaume/tf-cadence/gnura
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/gmake "cmTryCompileExec4237214742/fast"
-/usr/bin/gmake -f CMakeFiles/cmTryCompileExec4237214742.dir/build.make CMakeFiles/cmTryCompileExec4237214742.dir/build
+Run Build Command:/usr/bin/gmake "cmTryCompileExec3101251409/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec3101251409.dir/build.make CMakeFiles/cmTryCompileExec3101251409.dir/build
 gmake[1]: Entering directory `/home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec4237214742.dir/testCXXCompiler.cxx.o
-/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-g++   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi    -o CMakeFiles/cmTryCompileExec4237214742.dir/testCXXCompiler.cxx.o -c /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTryCompileExec4237214742
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4237214742.dir/link.txt --verbose=1
-/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-g++   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi        -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed CMakeFiles/cmTryCompileExec4237214742.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec4237214742 -rdynamic 
+Building CXX object CMakeFiles/cmTryCompileExec3101251409.dir/testCXXCompiler.cxx.o
+/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-g++   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types      -o CMakeFiles/cmTryCompileExec3101251409.dir/testCXXCompiler.cxx.o -c /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec3101251409
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3101251409.dir/link.txt --verbose=1
+/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-g++   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types      -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed CMakeFiles/cmTryCompileExec3101251409.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec3101251409 -rdynamic 
 gmake[1]: Leaving directory `/home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp'
 
 
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/gmake "cmTryCompileExec2765279797/fast"
-/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2765279797.dir/build.make CMakeFiles/cmTryCompileExec2765279797.dir/build
+Run Build Command:/usr/bin/gmake "cmTryCompileExec2669884188/fast"
+/usr/bin/gmake -f CMakeFiles/cmTryCompileExec2669884188.dir/build.make CMakeFiles/cmTryCompileExec2669884188.dir/build
 gmake[1]: Entering directory `/home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec2765279797.dir/testCCompiler.c.o
-/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-gcc   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi   -o CMakeFiles/cmTryCompileExec2765279797.dir/testCCompiler.c.o   -c /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTryCompileExec2765279797
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2765279797.dir/link.txt --verbose=1
-/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-gcc   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi       -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed CMakeFiles/cmTryCompileExec2765279797.dir/testCCompiler.c.o  -o cmTryCompileExec2765279797 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec2669884188.dir/testCCompiler.c.o
+/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-gcc   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types      -o CMakeFiles/cmTryCompileExec2669884188.dir/testCCompiler.c.o   -c /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec2669884188
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2669884188.dir/link.txt --verbose=1
+/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-gcc   -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types      -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed CMakeFiles/cmTryCompileExec2669884188.dir/testCCompiler.c.o  -o cmTryCompileExec2669884188 -rdynamic 
 gmake[1]: Leaving directory `/home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles/CMakeTmp'
 
 

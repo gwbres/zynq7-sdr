@@ -65,6 +65,10 @@ namespace gr {
 			//printf("erreur d'ouverture du fpga (%d) : %s\n", fpga_fd, perror(errno));
 			perror("erreur d'ouverture du fpga!!! : ");
 		}
+		const int alignment_multiple =
+		volk_get_alignment() / sizeof(gr_complex);
+		set_alignment(std::max(1, alignment_multiple));
+
 		_test = 0;
 		_buf_len = _buf_head = _buf_used = _buf_offset = 0;
 		_buf_num = 32;	
@@ -91,9 +95,9 @@ namespace gr {
      */
     dds_fpga_impl::~dds_fpga_impl()
     {
+		_running = 0;
 		_thread.join();
 		close(fpga_fd);
-		_running = 0;
 		if (_buf) {
 			for (int i = 0; i < _buf_num; i++)
 				free(_buf[i]);
@@ -113,8 +117,10 @@ void dds_fpga_impl::_sx1255_wait(dds_fpga_impl *obj)
 		int len;
 		int buf_tail;
 		while(1) {
+			if (_running == 0)
+				break;
 			len = read(fpga_fd, buf, _buf_len);
-			if (_running == 0 || len < 0)
+			if (len < 0)
 				break;
 			if (len != _buf_len) 
 				printf("plop %d\n", len);
@@ -154,21 +160,20 @@ void dds_fpga_impl::_sx1255_wait(dds_fpga_impl *obj)
 		//printf("\twork %d %d %d\n", noutput_items, _samp_avail, _buf_used);
 		while (1) {
 			buf = _buf[_buf_head] + _buf_offset;
-			printf(".");	
-			fflush(stdout);
-			if (_test == 0) {
+		
+/*			if (_test == 0) {
 				_test = 1;
 				for (int i = 0; i<128; i++) {
 					printf("%hd %hd\n",(signed short) (buf[i]&0xff), (signed short)((buf[i]&0xff00)>>8));	
 				}
-			}
+			}*/
 
 			if (size <= _samp_avail) {
 				//printf("cas 1\n");
 				//memcpy(out, buf, size*BYTES_PER_SAMPLE);
 				volk_8i_s32f_convert_32f_u(out, (const int8_t*)buf, 1.0, 
-								BYTES_PER_SAMPLE*noutput_items);
-				_buf_offset += size*BYTES_PER_SAMPLE;
+								BYTES_PER_SAMPLE*size);
+				_buf_offset += size/**BYTES_PER_SAMPLE*/;
 				_samp_avail -= size;
 				return noutput_items;
 			} else {
@@ -176,11 +181,16 @@ void dds_fpga_impl::_sx1255_wait(dds_fpga_impl *obj)
 				//memcpy(out, buf, _samp_avail*BYTES_PER_SAMPLE);
 				volk_8i_s32f_convert_32f_u(out, (const int8_t*)buf, 1.0, 
 							BYTES_PER_SAMPLE*_samp_avail);
-				//out+=BYTES_PER_SAMPLE*_samp_avail;
-				//out+=sizeof(float)*_samp_avail;
+				/* GGM: not sure: but two float/sample ? true with
+				 * gr_complex?
+				 */
+				out+=(BYTES_PER_SAMPLE*_samp_avail);
+				//out+=/*sizeof(float)**/_samp_avail;
 
 				{
 					boost::mutex::scoped_lock lock(_buf_mutex);
+					while (_buf_used < 1) 
+						_buf_cond.wait(lock);
 					_buf_head = (_buf_head + 1) % _buf_num;
 					_buf_used --;
 				}
@@ -189,15 +199,15 @@ void dds_fpga_impl::_sx1255_wait(dds_fpga_impl *obj)
 				int remaining = size - _samp_avail;
 
 				if (remaining > _nb_sample) {
-					//printf("\tover\t");
+					printf("\tover\t");
 					remaining = _nb_sample;
 				}
 				//printf("part2\n");	
 				volk_8i_s32f_convert_32f_u(out, (const int8_t *)buf, 1.0, 
 									BYTES_PER_SAMPLE*remaining);
 				//memcpy(out, buf, remaining*BYTES_PER_SAMPLE);
-				//out+=remaining*sizeof(float);
-				_buf_offset = remaining*BYTES_PER_SAMPLE;
+				out+=remaining*BYTES_PER_SAMPLE;
+				_buf_offset = remaining/**BYTES_PER_SAMPLE*/;
 				size -= (_samp_avail+remaining);
 				_samp_avail = _nb_sample - remaining;
 				/*if (size > 0) {

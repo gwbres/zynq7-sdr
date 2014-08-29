@@ -57,7 +57,8 @@ CMAKE_CXX_COMPILER:FILEPATH=/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr
 //First argument to CXX compiler
 CMAKE_CXX_COMPILER_ARG1:STRING=  -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi
 
-CMAKE_CXX_FLAGS:STRING=
+//Flags used by the compiler during all build types.
+CMAKE_CXX_FLAGS:STRING=' -O2 -pipe -g -feliminate-unused-debug-types '
 
 //Flags used by the compiler during debug builds.
 CMAKE_CXX_FLAGS_DEBUG:STRING=-g
@@ -79,7 +80,8 @@ CMAKE_C_COMPILER:FILEPATH=/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/b
 //First argument to C compiler
 CMAKE_C_COMPILER_ARG1:STRING=  -march=armv7-a -marm -mthumb-interwork -mfloat-abi=hard -mfpu=neon --sysroot=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi
 
-CMAKE_C_FLAGS:STRING=
+//Flags used by the compiler during all build types.
+CMAKE_C_FLAGS:STRING=' -O2 -pipe -g -feliminate-unused-debug-types '
 
 //Flags used by the compiler during debug builds.
 CMAKE_C_FLAGS_DEBUG:STRING=-g
@@ -198,9 +200,6 @@ DOXYGEN_DOT_EXECUTABLE:FILEPATH=
 //Doxygen documentation generation tool (http://www.doxygen.org)
 DOXYGEN_EXECUTABLE:FILEPATH=
 
-//No help, variable specified on the command line.
-ENABLE_DOXYGEN:UNINITIALIZED=OFF
-
 //lib directory suffix
 LIB_SUFFIX:STRING=
 
@@ -210,11 +209,11 @@ PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/local/oecore-i686/sysroots/i686-oesdk-linux/
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/python2
 
-//Path to a file.
-PYTHON_INCLUDE_DIR:PATH=
+//Path to where Python.h is found
+PYTHON_INCLUDE_DIR:PATH=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/include/python2.7
 
-//The PYTHON library
-PYTHON_LIBRARY:FILEPATH=/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/lib/libpython2.7.so
+//Path to a library.
+PYTHON_LIBRARY:FILEPATH=PYTHON_LIBRARY-NOTFOUND
 
 //Path to a program.
 SHELL:FILEPATH=/bin/sh
@@ -229,7 +228,7 @@ SWIG_EXECUTABLE:FILEPATH=/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bi
 SWIG_VERSION:STRING=2.0.12
 
 //Dependencies for the target
-_test1_swig_LIB_DEPENDS:STATIC=general;/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/lib/libpython2.7.so;general;gnuradio-test1;
+_test1_swig_LIB_DEPENDS:STATIC=general;/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/lib;general;gnuradio-test1;
 
 //Dependencies for the target
 gnuradio-test1_LIB_DEPENDS:STATIC=general;/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/lib/libboost_filesystem-mt.so;general;/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/lib/libboost_system-mt.so;general;/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/lib/libgnuradio-runtime.so;
@@ -401,7 +400,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/local/oecore-i686/sysroots
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/python2][v2.7.3(2)]
 //Details about finding PythonLibs
-FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/lib/libpython2.7.so][/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/include/python2.7][v2.7.3(2)]
+FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/lib][/usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/include/python2.7][v2.7.3(2)]
 //Details about finding SWIG
 FIND_PACKAGE_MESSAGE_DETAILS_SWIG:INTERNAL=[/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/bin/swig2.0][/usr/local/oecore-i686/sysroots/i686-oesdk-linux/usr/share/swig/2.0.12][v2.0.12()]
 GR_TEST1_INCLUDE_DIRS:INTERNAL=/home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/include

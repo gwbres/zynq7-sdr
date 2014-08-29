@@ -8060,23 +8060,37 @@ SWIGINTERN PyObject *toto_sptr_swigregister(PyObject *SWIGUNUSEDPARM(self), PyOb
 SWIGINTERN PyObject *_wrap_dds_fpga_make(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   int arg1 ;
+  std::string *arg2 = 0 ;
   int val1 ;
   int ecode1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
   PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "nbSamp", NULL 
+    (char *) "nbSamp",(char *) "devname", NULL 
   };
   gr::test1::dds_fpga::sptr result;
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:dds_fpga_make",kwnames,&obj0)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:dds_fpga_make",kwnames,&obj0,&obj1)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(obj0, &val1);
   if (!SWIG_IsOK(ecode1)) {
     SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "dds_fpga_make" "', argument " "1"" of type '" "int""'");
   } 
   arg1 = static_cast< int >(val1);
   {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "dds_fpga_make" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "dds_fpga_make" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  {
     try {
-      result = gr::test1::dds_fpga::make(arg1);
+      result = gr::test1::dds_fpga::make(arg1,(std::string const &)*arg2);
     }
     catch(std::exception &e) {
       SWIG_exception(SWIG_RuntimeError, e.what());
@@ -8087,8 +8101,10 @@ SWIGINTERN PyObject *_wrap_dds_fpga_make(PyObject *SWIGUNUSEDPARM(self), PyObjec
     
   }
   resultobj = SWIG_NewPointerObj((new gr::test1::dds_fpga::sptr(static_cast< const gr::test1::dds_fpga::sptr& >(result))), SWIGTYPE_p_boost__shared_ptrT_gr__test1__dds_fpga_t, SWIG_POINTER_OWN |  0 );
+  if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
   return NULL;
 }
 
@@ -8289,18 +8305,21 @@ SWIGINTERN PyObject *_wrap_dds_fpga_sptr_make(PyObject *SWIGUNUSEDPARM(self), Py
   PyObject *resultobj = 0;
   boost::shared_ptr< gr::test1::dds_fpga > *arg1 = (boost::shared_ptr< gr::test1::dds_fpga > *) 0 ;
   int arg2 ;
+  std::string *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "nbSamp", NULL 
+    (char *) "self",(char *) "nbSamp",(char *) "devname", NULL 
   };
   gr::test1::dds_fpga::sptr result;
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:dds_fpga_sptr_make",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:dds_fpga_sptr_make",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_boost__shared_ptrT_gr__test1__dds_fpga_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "dds_fpga_sptr_make" "', argument " "1"" of type '" "boost::shared_ptr< gr::test1::dds_fpga > *""'"); 
@@ -8312,8 +8331,19 @@ SWIGINTERN PyObject *_wrap_dds_fpga_sptr_make(PyObject *SWIGUNUSEDPARM(self), Py
   } 
   arg2 = static_cast< int >(val2);
   {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(obj2, &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "dds_fpga_sptr_make" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "dds_fpga_sptr_make" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    arg3 = ptr;
+  }
+  {
     try {
-      result = (*arg1)->make(arg2);
+      result = (*arg1)->make(arg2,(std::string const &)*arg3);
     }
     catch(std::exception &e) {
       SWIG_exception(SWIG_RuntimeError, e.what());
@@ -8324,8 +8354,10 @@ SWIGINTERN PyObject *_wrap_dds_fpga_sptr_make(PyObject *SWIGUNUSEDPARM(self), Py
     
   }
   resultobj = SWIG_NewPointerObj((new gr::test1::dds_fpga::sptr(static_cast< const gr::test1::dds_fpga::sptr& >(result))), SWIGTYPE_p_boost__shared_ptrT_gr__test1__dds_fpga_t, SWIG_POINTER_OWN |  0 );
+  if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
   return NULL;
 }
 
@@ -11196,7 +11228,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"toto_sptr_message_ports_out", _wrap_toto_sptr_message_ports_out, METH_VARARGS, (char *)"toto_sptr_message_ports_out(toto_sptr self) -> swig_int_ptr"},
 	 { (char *)"toto_sptr_message_subscribers", (PyCFunction) _wrap_toto_sptr_message_subscribers, METH_VARARGS | METH_KEYWORDS, (char *)"toto_sptr_message_subscribers(toto_sptr self, swig_int_ptr which_port) -> swig_int_ptr"},
 	 { (char *)"toto_sptr_swigregister", toto_sptr_swigregister, METH_VARARGS, NULL},
-	 { (char *)"dds_fpga_make", (PyCFunction) _wrap_dds_fpga_make, METH_VARARGS | METH_KEYWORDS, (char *)"dds_fpga_make(int nbSamp) -> dds_fpga_sptr"},
+	 { (char *)"dds_fpga_make", (PyCFunction) _wrap_dds_fpga_make, METH_VARARGS | METH_KEYWORDS, (char *)"dds_fpga_make(int nbSamp, std::string const & devname) -> dds_fpga_sptr"},
 	 { (char *)"delete_dds_fpga", _wrap_delete_dds_fpga, METH_VARARGS, (char *)"delete_dds_fpga(dds_fpga self)"},
 	 { (char *)"dds_fpga_swigregister", dds_fpga_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_dds_fpga_sptr", _wrap_new_dds_fpga_sptr, METH_VARARGS, (char *)"\n"
@@ -11205,7 +11237,7 @@ static PyMethodDef SwigMethods[] = {
 		""},
 	 { (char *)"dds_fpga_sptr___deref__", _wrap_dds_fpga_sptr___deref__, METH_VARARGS, (char *)"dds_fpga_sptr___deref__(dds_fpga_sptr self) -> dds_fpga"},
 	 { (char *)"delete_dds_fpga_sptr", _wrap_delete_dds_fpga_sptr, METH_VARARGS, (char *)"delete_dds_fpga_sptr(dds_fpga_sptr self)"},
-	 { (char *)"dds_fpga_sptr_make", (PyCFunction) _wrap_dds_fpga_sptr_make, METH_VARARGS | METH_KEYWORDS, (char *)"dds_fpga_sptr_make(dds_fpga_sptr self, int nbSamp) -> dds_fpga_sptr"},
+	 { (char *)"dds_fpga_sptr_make", (PyCFunction) _wrap_dds_fpga_sptr_make, METH_VARARGS | METH_KEYWORDS, (char *)"dds_fpga_sptr_make(dds_fpga_sptr self, int nbSamp, std::string const & devname) -> dds_fpga_sptr"},
 	 { (char *)"dds_fpga_sptr_history", _wrap_dds_fpga_sptr_history, METH_VARARGS, (char *)"dds_fpga_sptr_history(dds_fpga_sptr self) -> unsigned int"},
 	 { (char *)"dds_fpga_sptr_declare_sample_delay", _wrap_dds_fpga_sptr_declare_sample_delay, METH_VARARGS, (char *)"\n"
 		"declare_sample_delay(int which, int delay)\n"

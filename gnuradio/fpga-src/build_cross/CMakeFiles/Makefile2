@@ -208,8 +208,8 @@ swig/preinstall:
 # Target rules for target swig/CMakeFiles/_test1_swig.dir
 
 # All Build rule for target.
-swig/CMakeFiles/_test1_swig.dir/all: swig/CMakeFiles/_test1_swig_swig_tag.dir/all
 swig/CMakeFiles/_test1_swig.dir/all: lib/CMakeFiles/gnuradio-test1.dir/all
+swig/CMakeFiles/_test1_swig.dir/all: swig/CMakeFiles/_test1_swig_swig_tag.dir/all
 	$(MAKE) -f swig/CMakeFiles/_test1_swig.dir/build.make swig/CMakeFiles/_test1_swig.dir/depend
 	$(MAKE) -f swig/CMakeFiles/_test1_swig.dir/build.make swig/CMakeFiles/_test1_swig.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/guillaume/tf-cadence/gnuradio/zedboard/gr-test1WithBufLen/build_cross/CMakeFiles  1 2 3

@@ -103,7 +103,6 @@ _test1_swig_EXTERNAL_OBJECTS =
 
 swig/_test1_swig.so: swig/CMakeFiles/_test1_swig.dir/test1_swigPYTHON_wrap.cxx.o
 swig/_test1_swig.so: swig/CMakeFiles/_test1_swig.dir/build.make
-swig/_test1_swig.so: /usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/lib/libpython2.7.so
 swig/_test1_swig.so: lib/libgnuradio-test1.so
 swig/_test1_swig.so: /usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/lib/libboost_filesystem-mt.so
 swig/_test1_swig.so: /usr/local/oecore-i686/sysroots/armv7at2hf-vfp-neon-oe-linux-gnueabi/usr/lib/libboost_system-mt.so
