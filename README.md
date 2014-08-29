@@ -82,6 +82,7 @@ cd ..
 ./install.sh (expects build_cross as a subdirectory)
 ```
 The fpga-src block is installed and ready to be used in a top.py file.
+
 Create a bitstream using vivado (or XPS), by adding our IPs: SX1255 and RAM - 
 connected to each other. 
 
