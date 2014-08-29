@@ -16,6 +16,10 @@ Official maintainers are:
 Pass arguments to the linux drivers from the gnuradio environment through variables:
 skip the './ram' and './sx1255' part. 
 
+###### A quick presentation
+http://www.youtube.com/watch?v=P-XzTaRDNxg&feature=youtu.be   [0:30] is a presentation
+of a real-time frequency demodulation of the incoming signal.
+
 #### gnuradio
 - - -
 This is our gnuradio source block.
