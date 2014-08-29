@@ -36,10 +36,6 @@ To install the source block, please check the "help" section of this readme.
 - - - 
 Contains all the project sources.
 
-Please, note the xps-edk IPs are **deprecated**, our linux drivers and userspace programs
-are only valid for the **vivado** IPs. The differences being memory addresses, interrupt
-flags number and fpga registers addresses.
-
 ###### Vivado
 Contains valid IPs to use with Vivado (new Xilinx tool).
     
@@ -54,7 +50,11 @@ Contains valid IPs to use with Vivado (new Xilinx tool).
   userspace program is found in the userspace subdirectory.
 
 ###### xps-edk
-Contains valid IPs to use with the XPS/EDK Xilinx tool.
+  Contains the same valid IPs to use with the XPS/EDK Xilinx tool.
+  
+  * cross-compile the drivers _drvboard.ko_ and _drvcore.ko_ and insert them on the zynq.
+  * cross-compile the userspace programs _sx1255.c_ and _iqram.c_.
+  * run the sdr.sh script on the board.
 
 #### help
 - - -
