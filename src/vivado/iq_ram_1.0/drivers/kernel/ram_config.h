@@ -27,10 +27,10 @@
 
 /* platform device */
 struct plat_ram_port {
-	const char *name;
-	int num;
-	int id;
-	int idoffset;
-	struct ram_dev *sdev;
+  const char *name;
+  int num;
+  int id;
+  int idoffset;
+  struct ram_dev *sdev;
 };
 #endif

@@ -9,7 +9,7 @@
 int main(int argc, char **argv)
 {	
   int value; long k;
-  int fd;
+  int fd; double freq_i, freq_o, fosc = 36.0;
   fd = open("/dev/sx1255" , O_RDWR);
   if (fd < 0) {
     printf("error opening /dev/sx1255\r\n");
@@ -32,17 +32,16 @@ int main(int argc, char **argv)
       	spi_write(fd, 0x55);
 	while(spi_busy(fd));
       }
-  } else if (strcmp(argv[1], "init") == 0) {
-      double freq_i = atof(argv[2]);
-      double freq_o = atof(argv[3]);
-      double fosc = atof(argv[4]);
+  } else if (strcmp(argv[1], "init") == 0){
+      freq_i = atof(argv[2]);
+      freq_o = atof(argv[3]);
       init_radiomodem(fd, freq_i, freq_o, fosc);
       printf("\r\n sx1255 initalized @ freq_in: %f MHz freq_out: %f MHz freq_osc: %f MHz \r\n",
 	freq_i, freq_o, fosc);
   }  else 
-	printf("\r\n ./sx1255 [send_iq/spi_test/init] [val_to_write/freq_in @MHz] [freq_out @MHz] [fosc @MHz] \r\n");
+	printf("\r\n ./sx1255 [send_iq/spi_test/init] [val_to_write/freq_in @MHz] [freq_out @MHz]\r\n");
   } else
-      printf("\r\n ./sx1255 [send_iq/spi_test/init] [val_to_write/freq_in @MHz] [freq_out @MHz] [fosc @MHz] \r\n");
+      printf("\r\n ./sx1255 [send_iq/spi_test/init] [val_to_write/freq_in @MHz] [freq_out @MHz]\r\n");
 
   close(fd);
   return 0;

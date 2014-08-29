@@ -3,6 +3,7 @@
 #include <stdint.h>
 
 #define FPGA_IP_BASE  0x43D20000
+#define BUFF_LEN  8192
 #define IOC_MAGIC   'a'
 #define START_CMD   _IOW(IOC_MAGIC, 0, int)
 #define STOP_CMD    _IOW(IOC_MAGIC, 1, int)
@@ -19,5 +20,5 @@ int32_t read_ram(unsigned int fd);
 void set_decim_factor(unsigned int fd, int dc);
 int ram_status(unsigned int fd);
 void reset_read_ptr(unsigned int fd);
-void iq_to_log(unsigned int fd, int nsample, char *logfile);
+void debug(unsigned int fd);
 #endif

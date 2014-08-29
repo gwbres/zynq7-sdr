@@ -18,10 +18,10 @@
 
 /* platform device */
 struct plat_sx1255_port {
-	const char *name;
-	int num;
-	int id;
-	int idoffset;
-	struct sx1255_dev *sdev;
+  const char *name;
+  int num;
+  int id;
+  int idoffset;
+  struct sx1255_dev *sdev;
 };
 #endif

@@ -33,24 +33,20 @@ static struct platform_device plat_ram_device = {
 	.resource = ram_resources,
 };
 
-static int ram_board_init(void) {
-	int status;
-	status = platform_device_register(&plat_ram_device);
-	if (status < 0) 
-		return status;
-	else
-		printk(KERN_INFO "ram board mounted\r\n");
-	return status;
+static int ram_board_init(void){
+  int status;
+  status = platform_device_register(&plat_ram_device);
+  if (status < 0) 
+    return status;
+  return status;
 }
 
 static void ram_board_exit(void) {
-	platform_device_unregister(&plat_ram_device);
-	printk(KERN_INFO "ram board unmounted\r\n");
+  platform_device_unregister(&plat_ram_device);
 }
 
 module_init(ram_board_init);
 module_exit(ram_board_exit);
-
 MODULE_AUTHOR("guillaume william bres-saix <guillaume.bressaix@gmail.com>");
 MODULE_DESCRIPTION("I2S RAM Platform device");
 MODULE_ALIAS("ram_board");

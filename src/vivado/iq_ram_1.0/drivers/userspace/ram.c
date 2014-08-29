@@ -10,7 +10,8 @@
 int main(int argc, char **argv){	
   int value;
   int iq, i1, i2, q1, q2;
-  int fd;
+  int fd; 
+  char logfile[10];
   
   fd = open("/dev/iqram" , O_RDWR);
   if (fd < 0) {
@@ -23,8 +24,7 @@ int main(int argc, char **argv){
     goto fail;
   }
 
-  if ((argc == 2)||(argc == 3)||(argc == 4)){
-    if (strcmp(argv[1], "read") == 0){
+  if (strcmp(argv[1], "read") == 0){
       iq = read_ram(fd);	
       printf("iQ 0x%x \r\n", iq);
       i1 = (iq&0xff000000)>>24;
@@ -32,25 +32,18 @@ int main(int argc, char **argv){
       i2 = (iq&0xff00)>>8;
       q2 = (iq&0x00ff);
       printf("i1: 0x%x q1: 0x%x i2: 0x%x q2: 0x%x\r\n", i1, q1, i2, q2);
-    } else if (strcmp(argv[1], "start") == 0) 
-	start_acq(fd);
+  } else if (strcmp(argv[1], "start") == 0) 
+      start_acq(fd);
     else if (strcmp(argv[1], "stop") == 0) 
       stop_acq(fd);
     else if (strcmp(argv[1], "reset") == 0)
       reset_read_ptr(fd);
     else if (strcmp(argv[1], "decim") == 0){
       value = atoi(argv[2]);
-      printf("\r\nSetting decim factor to %d\r\n", value);
       set_decim_factor(fd, value);
-    } else if (strcmp(argv[1], "log") == 0){
-      int nsample = atoi(argv[2]);
-      char *logfile = argv[3];
-      iq_to_log(fd, nsample, logfile);
-    } else 
-      printf("usage ./ram [start/stop/reset/status/read/id/log/decim] [decim_factor/nsample] [filepath] \r\n"); 
-    } 
-    else 
-      printf("usage ./ram [start/stop/reset/status/read/id/log/decim] [decim_factor/nsample] [filepath]\r\n");
+    } else if (strcmp(argv[1], "debug") == 0)
+      debug(fd);
+    else printf("use ./ram [start/stop/reset/decim/debug] [decim_factor] \r\n"); 
 
   close(fd);
   return 0;
@@ -68,15 +61,13 @@ int fpga_test_comm(unsigned int fd){
 }
 
 void start_acq(unsigned int fd){
-	int value = 0x01;
-	ioctl(fd, START_CMD, &value);
-	printf("iQ sampling started.\r\n");
+  int value = 0x01;
+  ioctl(fd, START_CMD, &value);
 }
 
 void stop_acq(unsigned int fd){
-	int value = 0x00;
-	ioctl(fd, STOP_CMD, &value);
-	printf("iQ sampling stopped.\r\n");
+  int value = 0x00;
+  ioctl(fd, STOP_CMD, &value);
 }
 
 void reset_read_ptr(unsigned int fd){
@@ -94,24 +85,37 @@ int32_t read_ram(unsigned int fd){
   return iq;
 }
 
-void iq_to_log(unsigned int fd, int nsample, char *logfile){
-  int idx = 0x00;
-  int iq = 0x00;
-  int i1,q1,i2,q2;
-  FILE *f;
-  f = fopen(logfile, "a");
-  start_acq(fd);
-  reset_read_ptr(fd);
-  while (idx < nsample){
-    iq = read_ram(fd);
-    i1 = (iq&0xff000000)>>24;
-    q1 = (iq&0xff0000)>>16;
-    i2 = (iq&0xff00)>>8;
-    q2 = (iq&0xff);
-    fprintf(f, "%d ", i1);
-    fprintf(f, "%d\n", q1);
-    fprintf(f, "%d ", i2);
-    fprintf(f, "%d\n", q2);
-    idx++;
+void debug(unsigned int fd){
+  unsigned int k, len_ = 0;
+  int32_t buffer[BUFF_LEN];
+  char i,q;
+  
+  FILE *f;  
+  f = fopen("iq.dat", "w");
+  if (f == NULL){
+    printf("error opening iq.dat\r\n");
+    return;
   }
+
+  reset_read_ptr(fd);
+  start_acq(fd);
+  
+  len_ = read(fd, buffer, BUFF_LEN*4);
+  if (len_ < BUFF_LEN*4){
+    printf("read failed with %d\r\n", len_);
+    fclose(f);
+    return;
+  }
+  
+  for(k = 0; k < BUFF_LEN; k++){
+    i = (buffer[k]&0xff000000)>>24;
+    q = (buffer[k]&0xff0000)>>16;
+    fprintf(f, "%d ", i);
+    fprintf(f, "%d\n", q);
+    i = (buffer[k]&0xff00)>>8;
+    q = (buffer[k]&0xff);
+    fprintf(f, "%d ", i);
+    fprintf(f, "%d\n", q);
+  }
+  fclose(f);
 }
