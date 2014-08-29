@@ -15,7 +15,7 @@ Official maintainers are:
 
 Pass arguments to the linux drivers from the gnuradio environment, instead of calling
 external scripts: like programming the radiomodem, setting the decimation factor or
-setting the fir-filter coefficients.
+setting the fir-filter coefficients. To do so, we will use gnuradio variables.
 
 #### gnuradio
 - - -
