@@ -134,3 +134,4 @@ make ARCH=arm CROSS_COMPILE=arm-oe-linux-gnueabi- INSTALL_MOD_PATH=./mod modules
 ```
 upload the new lib/modules onto the system rootfs.
 
+###### HF!
