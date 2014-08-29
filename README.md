@@ -13,9 +13,8 @@ Official maintainers are:
 
 ###### Things to be improved:
 
-Pass arguments to the linux drivers from the gnuradio environment, instead of calling
-external scripts: like programming the radiomodem, setting the decimation factor or
-setting the fir-filter coefficients. To do so, we will use graphical variables.
+Pass arguments to the linux drivers from the gnuradio environment through variables:
+skip the './ram' and './sx1255' part. 
 
 #### gnuradio
 - - -
