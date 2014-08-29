@@ -7,8 +7,6 @@
 
 int main(int argc, char **argv){
   unsigned int fd;
-  printf("Hello Fir16\r\n");
-
   fd = open("/dev/fir16", O_RDWR);
   if (fd < 0){
     printf("error opening /dev/fir16\r\n");
