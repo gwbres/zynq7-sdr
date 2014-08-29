@@ -93,7 +93,7 @@ cat bitstream.bin > /dev/xdevcfg
 insmod sx1255_board.ko
 insmod sx1255_core.ko
 echo "programming the radiomodem.."
-./sx1255 init [RX_FREQ] [TX_FREQ] [36.0]
+./sx1255 init [RX_FREQ] [TX_FREQ]
 insmod ram_board.ko
 insmod ram_core.ko
 echo "controlling the application.."
