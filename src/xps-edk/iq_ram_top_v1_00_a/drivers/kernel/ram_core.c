@@ -37,11 +37,8 @@ DEFINE_MUTEX(ram_mutex);
 
 static void ram_tasklet_func(unsigned long priv){
   int k = 0;
-  //mutex_lock(&ram_mutex);
   ram->count++;
-  printk(KERN_INFO "irq %d\n", ram->count);
   ram->status = readl(ram->membase +RAM_STATUS_REG);
-  //mutex_unlock(&ram_mutex);
   switch(ram->status){
   case 0x00:	
     for (k=BUFF_SIZE/2; k<BUFF_SIZE; k++)
@@ -238,8 +235,6 @@ static int ram_probe(struct platform_device *pdev)
 	
   sdev->status = 0x00;
   sdev->count = 0x00;
-  //mutex_init(&ram_mutex);
-	
   ram = sdev;
   
   status = misc_register(&sdev->misc);
@@ -289,7 +284,6 @@ static struct platform_driver plat_ram_driver = {
 };
 
 module_platform_driver(plat_ram_driver);
-
 MODULE_AUTHOR("guillaume william bres-saix <guillaume.bressaix@gmail.com>");
 MODULE_ALIAS("iqram");
 MODULE_LICENSE("GPL");
