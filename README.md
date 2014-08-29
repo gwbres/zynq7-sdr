@@ -52,10 +52,6 @@ Contains valid IPs to use with Vivado (new Xilinx tool).
 ###### xps-edk
   Contains the same valid IPs to use with the XPS/EDK Xilinx tool.
   
-  * cross-compile the drivers _drvboard.ko_ and _drvcore.ko_ and insert them on the zynq.
-  * cross-compile the userspace programs _sx1255.c_ and _iqram.c_.
-  * run the sdr.sh script on the board.
-
 #### help
 - - -
 ###### Embedded Linux
@@ -86,7 +82,25 @@ cd ..
 ./install.sh (expects build_cross as a subdirectory)
 ```
 The fpga-src block is installed and ready to be used in a top.py file.
+Create a bitstream using vivado (or XPS), by adding our IPs: SX1255 and RAM - 
+connected to each other. 
 
+Program the FPGA to start operating:
+
+```shell
+cat bitstream.bin > /dev/xdevcfg
+insmod sx1255_board.ko
+insmod sx1255_core.ko
+echo "programming the radiomodem.."
+./sx1255 init [RX_FREQ] [TX_FREQ] [36.0]
+insmod ram_board.ko
+insmod ram_core.ko
+echo "controlling the application.."
+./ram decim 50
+./ram start
+echo "launching gnuradio ..."
+python top_block_qt.py
+```
 
 ###### FPGA
 - - -
