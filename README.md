@@ -99,7 +99,7 @@ echo "controlling the application.."
 ./ram decim 50
 ./ram start
 echo "launching gnuradio ..."
-python top_block_qt.py
+python fpga_qt.py
 ```
 
 ###### FPGA
