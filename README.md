@@ -42,12 +42,13 @@ Contains all the project sources.
 ###### Vivado
 Contains valid IPs to use with Vivado (new Xilinx tool).
     
-  * sx1255-1.0 controls the SX1255(SEMTECH) radiotransceiver, through an AXI-SPI gateway.
+  * sx1255 controls the SX1255(SEMTECH) radiomodem (transceiver), through an AXI-SPI gateway.
   
-  * The ram-iq-1.0 ip uses 4096x2 axi-lite transfers to send the I/Q samples from the sx1255 IP.
-  
-  * The ram-iq-2.0 ip uses 16 axi-streaming transfers and a zynq7-dma flow to send the 
+  * complex\_plps\_if uses 4096x2 axi-lite transfers to send the 
   I/Q samples from the sx1255 IP.
+  
+  * complex\_dma uses 8192x2 axi-streaming transfers to send the I/Q
+  samples through the axi-dma/HP port.
   
   Import the repository to use the IP. The linux driver can be found in the kernel subdirectory, the
   userspace program is found in the userspace subdirectory.
@@ -75,7 +76,7 @@ Upload the **gnuradio** directory onto the zynq-board.
 Compile our gnuradio source and install the new block on the zynq7 board, to do so: connect to the board then,
 
 ```shell 
-scp -r gnuradio root@my_zynq_ip:/home/root
+scp -r gnuradio root@my_zynq:/home/root
 ssh root@my_zynq_ip
 cd ~/gnuradio/fpga-src-block/fpga-src/
 mkdir build_cross
