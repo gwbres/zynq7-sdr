@@ -4,7 +4,7 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
-entity sx1255_v1_0_S00_AXI is
+entity sx1255_s00_axi is
 generic (
   C_S_AXI_DATA_WIDTH : integer := 32;
   C_S_AXI_ADDR_WIDTH : integer := 5;
@@ -43,9 +43,9 @@ port (
   q : out std_logic;
   i : out std_logic
 );
-end sx1255_v1_0_S00_AXI;
+end sx1255_s00_axi;
 
-architecture rtl of sx1255_v1_0_S00_AXI is
+architecture rtl of sx1255_s00_axi is
 
 signal axi_awaddr : std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
 signal axi_awready : std_logic;

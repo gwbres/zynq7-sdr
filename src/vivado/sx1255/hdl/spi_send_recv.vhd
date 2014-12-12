@@ -21,8 +21,7 @@ port (
   data_o : out std_logic_vector(SPI_DATA_WIDTH-1 downto 0);
   tick_i : in std_logic
 );
-
-end entity;
+end entity spi_send_recv;
 
 architecture rtl of spi_send_recv is
 

@@ -1,7 +1,7 @@
 -include ${ZYNQ_WORK_DIR}/${ZYNQ_BOARD}/Makefile.include
 
 OBJ=sx1255
-APPS=tmp
+APPS=/home/root/sdr-dma
 SRC:=$(shell pwd)
 
 obj-m += $(OBJ)_core.o 
@@ -19,8 +19,7 @@ modules_install:
 	make -C $(KSRC) SUBDIRS=$(SRC) modules_install 
 
 install:
-	scp $(OBJ)_core.ko root@$(IP):$(INSTALL_DIR)/$(APPS)
-	scp $(OBJ)_board.ko root@$(IP):$(INSTALL_DIR)/$(APPS)
+	scp $(OBJ)_core.ko $(OBJ)_board.ko root@${ZYNQ_BOARD_IP}:$(APPS)
 
 clean:
 	rm -f *.o *~ core .depend .*.cmd *.ko *.mod.c

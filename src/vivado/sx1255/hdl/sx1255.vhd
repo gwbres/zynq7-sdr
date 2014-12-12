@@ -1,9 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_arith.all;
-use ieee.std_logic_unsigned.all;
 
-entity sx1255_v1_0 is
+entity sx1255 is
 generic (
   C_S00_AXI_DATA_WIDTH : integer := 32;
   C_S00_AXI_ADDR_WIDTH : integer := 5;
@@ -50,104 +48,25 @@ port (
   data_q : out std_logic_vector(I2S_DATA_WIDTH-1 downto 0);
   data_en : out std_logic
 );
-end entity;
+end entity sx1255;
 
-architecture rtl of sx1255_v1_0 is
+architecture rtl of sx1255 is
 
-component sx1255_v1_0_S00_AXI is
-generic (
-  C_S_AXI_DATA_WIDTH : integer	:= 32;
-  C_S_AXI_ADDR_WIDTH : integer	:= 5;
-  SPI_DATA_WIDTH : integer := 8
-);
-port (
-  -- axi lite
-  S_AXI_ACLK	: in std_logic;
-  S_AXI_ARESETN	: in std_logic;
-  S_AXI_AWADDR	: in std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
-  S_AXI_AWPROT	: in std_logic_vector(2 downto 0);
-  S_AXI_AWVALID	: in std_logic;
-  S_AXI_AWREADY	: out std_logic;
-  S_AXI_WDATA	: in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
-  S_AXI_WSTRB	: in std_logic_vector((C_S_AXI_DATA_WIDTH/8)-1 downto 0);
-  S_AXI_WVALID	: in std_logic;
-  S_AXI_WREADY	: out std_logic;
-  S_AXI_BRESP	: out std_logic_vector(1 downto 0);
-  S_AXI_BVALID	: out std_logic;
-  S_AXI_BREADY	: in std_logic;
-  S_AXI_ARADDR	: in std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
-  S_AXI_ARPROT	: in std_logic_vector(2 downto 0);
-  S_AXI_ARVALID	: in std_logic;
-  S_AXI_ARREADY	: out std_logic;
-  S_AXI_RDATA	: out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
-  S_AXI_RRESP	: out std_logic_vector(1 downto 0);
-  S_AXI_RVALID	: out std_logic;
-  S_AXI_RREADY	: in std_logic;
-  -- spi
-  spi_start : out std_logic;
-  spi_busy : in std_logic;
-  spi_ps : out std_logic_vector(4 downto 0);
-  spi_o : out std_logic_vector(SPI_DATA_WIDTH-1 downto 0);
-  spi_i : in std_logic_vector(SPI_DATA_WIDTH-1 downto 0);
-  i : out std_logic;
-  q : out std_logic
-);
-end component sx1255_v1_0_S00_AXI;
-
-component spi is 
-generic (
-  SPI_DATA_WIDTH : integer := 8;
-  CPOL : std_logic := '0';
-  CPHA : std_logic := '0'
-);
-port (
-  clk : in std_logic;
-  rst : in std_logic;
-  prs_val : in std_logic_vector(4 downto 0);
-  spi_start : in std_logic;
-  spi_i : in std_logic_vector(SPI_DATA_WIDTH-1 downto 0);
-  spi_o : out std_logic_vector(SPI_DATA_WIDTH-1 downto 0);
-  miso : in std_logic;
-  mosi : out std_logic;
-  cs : out std_logic;
-  sck : out std_logic
-);
-end component spi;
-
-component i2s is
-generic (
-  I2S_DATA_WIDTH : integer := 8
-);
-port (
-  clk : in std_logic;
-  rst : in std_logic;
-  i2s_clk_i : in std_logic;
-  i2s_i_i : in std_logic;
-  i2s_q_i : in std_logic;
-  i2s_ws_i : in std_logic;
-  data_i_o : out std_logic_vector(I2S_DATA_WIDTH-1 downto 0);
-  data_q_o : out std_logic_vector(I2S_DATA_WIDTH-1 downto 0);
-  data_en_o : out std_logic
-);
-end component i2s;
-
-constant INTERNAL_DATA_WIDTH : integer := 9;
-signal data_i_o_s, data_q_o_s : std_logic_vector(INTERNAL_DATA_WIDTH-1 downto 0);
-signal rst : std_logic;
-signal spi_start_s, cs_s, spi_busy_s : std_logic;
-signal spi_i_s, spi_o_s : std_logic_vector(SPI_DATA_WIDTH-1 downto 0);
-signal spi_ps_s : std_logic_vector(4 downto 0);
-signal prs_s : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0);
-
+    signal data_i_o_s, data_q_o_s : std_logic_vector(8 downto 0);
+    signal rst : std_logic;
+    signal spi_start_s, cs_s, spi_busy_s : std_logic;
+    signal spi_i_s, spi_o_s : std_logic_vector(SPI_DATA_WIDTH-1 downto 0);
+    signal spi_ps_s : std_logic_vector(4 downto 0);
+    signal prs_s : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0);
 begin
 	
   rst <= not s00_axi_aresetn;
   cs <= cs_s;
   spi_busy_s <= not cs_s;
-  data_i <= (I2S_DATA_WIDTH-1 downto INTERNAL_DATA_WIDTH => data_i_o_s(INTERNAL_DATA_WIDTH-1))&data_i_o_s;
-  data_q <= (I2S_DATA_WIDTH-1 downto INTERNAL_DATA_WIDTH => data_q_o_s(INTERNAL_DATA_WIDTH-1))&data_q_o_s;
+  data_i <= (I2S_DATA_WIDTH-1 downto 9 => data_i_o_s(8))&data_i_o_s;
+  data_q <= (I2S_DATA_WIDTH-1 downto 9 => data_q_o_s(8))&data_q_o_s;
 
-sx1255_v1_0_S00_AXI_inst : sx1255_v1_0_S00_AXI
+sx1255_axi_lite_slv_inst: entity work.sx1255_s00_axi
 generic map (
   C_S_AXI_DATA_WIDTH => C_S00_AXI_DATA_WIDTH,
   C_S_AXI_ADDR_WIDTH => C_S00_AXI_ADDR_WIDTH,
@@ -185,7 +104,7 @@ port map (
   q => i2s_q_o
 );
 
-spi_inst: spi
+spi_inst: entity work.spi
 generic map (
   SPI_DATA_WIDTH => SPI_DATA_WIDTH,
   CPOL => '0',
@@ -204,9 +123,9 @@ port map (
   sck => sck
 );
 
-i2s_inst: i2s
+i2s_inst: entity work.i2s
 generic map (
-  I2S_DATA_WIDTH => INTERNAL_DATA_WIDTH
+  I2S_DATA_WIDTH => 9
 )
 port map (
   clk => s00_axi_aclk,
