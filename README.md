@@ -120,7 +120,7 @@ Following this tutorial, you will get a whole system embedding all of the gnurad
 run a gnuradio design flow on the zynq board.
 
 
-###### Optionnal
+###### Optional
 - - -
 Our applications/demonstrations involved the use of external usb-sound cards.
 The original open embedded kernel only contains ethernet modules/drivers.
